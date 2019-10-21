@@ -18,7 +18,7 @@ body {
 
     background: #eeeeee;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
     padding: 0px !important;
 
@@ -140,7 +140,7 @@ table tr th { color: #688a7e;}
 
 .login-img-body{
 
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
+  background: url('/images/login_background.png') no-repeat center center fixed;
 
   -webkit-background-size: cover;
 
@@ -149,6 +149,7 @@ table tr th { color: #688a7e;}
   -o-background-size: cover;
 
   background-size: cover;
+  font-family : Comfortaa;
 
 }
 
@@ -168,7 +169,7 @@ table tr th { color: #688a7e;}
 
 .login-img3-body{
 
-  background: url('../img/bg-1.jpg') no-repeat center center fixed;
+  background: url('/images/login_background.png') no-repeat center center fixed;
 
   -webkit-background-size: cover;
 
@@ -177,6 +178,7 @@ table tr th { color: #688a7e;}
   -o-background-size: cover;
 
   background-size: cover;
+  font-family : Comfortaa;
 
 }
 
@@ -184,11 +186,25 @@ table tr th { color: #688a7e;}
 
 .login-form {
 
-    max-width: 350px;
+    /* max-width: 350px;
 
     margin: 200px auto 0;
 
     background: #d5d7de;
+     */
+     position: absolute;
+     left : 32%;
+     top : 25%;
+     max-width : 500px;
+    margin : 2rem auto;
+    border : 2px solid #E74C3C;
+  /*   background-color : #FF7933; */
+    background-color: rgba(23,56,99,0.5);
+    opacity: 0.9;
+    padding : 2rem;
+    color : white;
+    border-radius : 5px;
+    font-family : Comfortaa;
 
 }
 
@@ -248,7 +264,7 @@ table tr th { color: #688a7e;}
 
     font-weight: 300;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
 }
 
@@ -266,7 +282,7 @@ table tr th { color: #688a7e;}
 
     font-weight: 300;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
 }
 
@@ -358,7 +374,7 @@ table tr th { color: #688a7e;}
 
     font-weight: 300;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
     box-shadow: 0 4px #e56b60;
 
@@ -3952,7 +3968,7 @@ div[data-role="editor-toolbar"] {
 
     background: #00a0df;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
     font-size: 11px;
 
@@ -6448,7 +6464,7 @@ ul.inbox-pagination li {
 
     font-weight: 300;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
 }
 
@@ -6458,7 +6474,7 @@ ul.inbox-pagination li {
 
     font-weight: 400;
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
 }
 
@@ -7649,6 +7665,7 @@ ul.amounts li {
 .tab-container {
 
     margin-top: 10px;
+    font-family : Comfortaa;
 
 }
 
@@ -8668,7 +8685,7 @@ table.sliders tr td {
 
     color: #34495e;
 
-    font-family: "Lato", sans-serif;
+    font-family: Comfortaa;
 
     font-size: 14px;
 
@@ -8724,7 +8741,7 @@ table.sliders tr td {
 
     content: "\f00d";
 
-    font-family: "FontAwesome";
+    font-family: Comfortaa;
 
 }
 
@@ -8782,7 +8799,7 @@ table.sliders tr td {
 
     content: "\f067";
 
-    font-family: "FontAwesome";
+    font-family: Comfortaa;
 
 }
 
@@ -8960,7 +8977,7 @@ table.sliders tr td {
 
 .daterangepicker .calendar th, .daterangepicker .calendar td {
 
-    font-family: 'Lato', sans-serif;
+    font-family: Comfortaa;
 
     font-weight: 300;
 
