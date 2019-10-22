@@ -10,8 +10,45 @@
 
 @import url(line-icons.css);
 
+.expenses{
+    background: url('');
+}
 
-
+.flaticon-business{
+    background :url('/images/icon/icons8-business-100.png');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+}
+.flaticon-extra{
+    background :url('/images/icon/icons8-profit-100.png');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+}
+.flaticon-loan{
+    background :url('/images/icon/icons8-pouch-64.png');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+}
+.flaticon-salary{
+    background :url('/images/icon/icons8-salary-male-24.png');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+}
+.flaticon-pocket{
+    background :url('/images/icon/icons8-money-64.png');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+}
 body {
 
     color: #797979;
