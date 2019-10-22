@@ -27,6 +27,9 @@ router.get('/signup', function(req, res, next) {
   res.render('signUp');
 });
 
+router.get('/income', function(req, res, next) {
+  res.render('income');
+});
 
 router.post('/loginverify', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
