@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 
 const LoginSchema = mongoose.Schema({
     // _id : Number,
+    email : String,
     username : String,
     password : String, 
     createdDate: {
@@ -10,4 +11,4 @@ const LoginSchema = mongoose.Schema({
     }
 });
 
-module.exports  = mongoose.model('login',LoginSchema);
+module.exports  = mongoose.model('login',LoginSchema);  
