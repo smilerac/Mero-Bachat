@@ -32,12 +32,9 @@ router.get('/income', function(req, res, next) {
 });
 
 
-router.get('/test', function(req, res, next) {
-  res.render('incomecopy');
-});
-router.get('/test1', function(req, res, next) {
-  res.render('setgoal');
-});
+// router.get('/test', function(req, res, next) {
+//   res.render('incomecopy');
+// });
 
 router.post('/loginverify', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
