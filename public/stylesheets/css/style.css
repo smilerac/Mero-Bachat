@@ -9323,12 +9323,13 @@ textarea.form-control {
     /*-webkit-border-radius: 50%;*/
     -moz-border-radius: 50%;
     -ms-border-radius: 50%;
-    border-radius: 50%;
+   /* border-radius: 50%;*/
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+  padding:19px;}
     .ftco-services .services .icon:after {
       position: absolute;
       top: 10px;
