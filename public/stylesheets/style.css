@@ -568,7 +568,19 @@ table tr th { color: #688a7e;}
 
     position: fixed;
 
-    background: #394a59;
+    background: #1a1a1a;
+    /* z-index: 1000;
+    left: 220px;
+    width: 0;
+    height: 100%;
+    margin-left: -220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #1a1a1a;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; */
 
 }
 
