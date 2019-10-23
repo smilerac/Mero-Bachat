@@ -4,8 +4,8 @@
 <section class = "goalbody">
 <h1>Set your Goals</h1>
 <div class="box">
-<button id="goal"  onclick="openForm()"> <a href="#popup1">set goals</a></button>
-</div>
+<button   onclick="openForm()"> set goals</button>
+
 <div id="popup1" class="overlay">
   <div class="popup">.
     <div class="container">
@@ -46,6 +46,6 @@
     document.getElementById("popup1").style.display = "none";
   }
   function openForm(){
-    document.getElementById("goal").style.display = "block";
+    document.getElementById("popup1").style.display = "block";
   }
 </script>
