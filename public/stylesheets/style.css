@@ -49,10 +49,15 @@
     width:50%;
 }
 body {
+    background :url('/images/cartoonmoney.jpg');
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;  
 
     color: #797979;
 
-    background: #eeeeee;
+    /* background: #eeeeee; */
 
     font-family: Comfortaa;
 
@@ -569,6 +574,8 @@ table tr th { color: #688a7e;}
     position: fixed;
 
     background: #394a59;
+    
+    font-family: Comfortaa;
 
 }
 
