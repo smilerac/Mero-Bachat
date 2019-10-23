@@ -443,12 +443,12 @@
 <% incomes.forEach(function(income) {%>
     <div class='business'>
         <button class="open-button" onclick="openForm()"><%= income.name %></button>
-        <div class="form-popup" id="myForm">
+        <div class="form-popup" id="myview">
           <form action="" class="form-container">
                 <h1>BUSINESS POCKET</h1>
                 <label for="name"><b>NAME</b></label>
                 <label for="amount"><b>AMOUNT</b></label>
-            <button  class="open-butto"  onclick="closeedit(); openForm(); ">Edit</button>
+            <button  class="open-butto"  onclick="closeEdit(); openForm(); ">Edit</button>
             <div class="form-pop" id="myForm">
                 <form action="" class="form-contain">
                       <h1>Edit POCKET</h1>
@@ -481,7 +481,7 @@
                 </form>
             </div>
         </div>
- <!--      <br>
+       <br>
             <div class='loan'>
                 <button class="open-button" onclick="openForm()">LOAN</button>
                     <div class="form-popup" id="myForm">
@@ -529,7 +529,7 @@
                 </section></section>
    
        
---> 
+
 
   <!-- javascripts -->
   <script src="/javascripts/jquery.js"></script>
@@ -547,7 +547,7 @@
   <script src="/javascripts/jquery.easy-pie-chart.js"></script>
   <script src="/javascripts/owl.carousel.js"></script>
   <!-- jQuery full calendar -->
-  <<script src="/javascripts/fullcalendar.min.js"></script>
+  <script src="/javascripts/fullcalendar.min.js"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="/javascripts/fullcalendar.js"></script>
     <!--script for this page only-->
@@ -625,7 +625,7 @@ function openForm() {
   
   
 }
-function closeedit() {
+function closeEdit() {
   document.getElementById("view").style.display = "none";
 }
 
