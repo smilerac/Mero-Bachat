@@ -573,9 +573,25 @@ table tr th { color: #688a7e;}
 
     position: fixed;
 
+<<<<<<< HEAD
+    background: #1a1a1a;
+    /* z-index: 1000;
+    left: 220px;
+    width: 0;
+    height: 100%;
+    margin-left: -220px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #1a1a1a;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease; */
+=======
     background: #394a59;
     
     font-family: Comfortaa;
+>>>>>>> 5a414846a512a8c6786d48da1d9efcb50cf4088f
 
 }
 

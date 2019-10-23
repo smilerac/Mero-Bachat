@@ -28,7 +28,12 @@ router.get('/signup', function(req, res, next) {
   res.render('signUp');
 });
 
-
+router.get('/setgoal', function(req, res, next) {
+  res.render('setgoal');
+});
+router.get('/expense', function(req, res, next) {
+  res.render('expense');
+});
 router.get('/income', function(req, res, next) {
   incomeinfo.find().exec((err,incomes) => {
     console.log('movies...........',incomes);
