@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var logininfo = require('../models/loginmodel')
+var incomeinfo = require('../models/incomemodel')
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -27,10 +28,28 @@ router.get('/signup', function(req, res, next) {
   res.render('signUp');
 });
 
+
 router.get('/income', function(req, res, next) {
-  res.render('income');
+  incomeinfo.find().exec((err,incomes) => {
+    console.log('movies...........',incomes);
+    res.render('income',{incomes}); //sends 'movies' data to 'viewMovies' view
+  })
 });
 
+//income crud part
+router.post('/addpocket', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var IncomeInfo = new incomeinfo({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = IncomeInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((IncomeInfo) => {//if you use normal promise
+    console.log('login info', IncomeInfo)
+    res.redirect('/income')
+  }).catch(err=> console.log(err+"could not save....."))
+});
 
 // router.get('/test', function(req, res, next) {
 //   res.render('incomecopy');
