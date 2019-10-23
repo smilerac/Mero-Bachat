@@ -27,9 +27,12 @@ router.get('/signup', function(req, res, next) {
   res.render('signUp');
 });
 
+//income 
 router.get('/income', function(req, res, next) {
   res.render('income');
 });
+
+//income crud part
 
 
 // router.get('/test', function(req, res, next) {
