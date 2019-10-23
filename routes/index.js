@@ -70,7 +70,7 @@ router.post('/loginverify', function(req, res, next) {//all data is in req.body
       }
      
 
-      // if( (req.body.email != this.email) || (req.body.email != this.email)){
+      // if( (user.email != email) || (user.email != email)){
       //   res.render('404wrong');
       // }
 
