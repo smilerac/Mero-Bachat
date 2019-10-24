@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var logininfo = require('../models/loginmodel')
 var incomeinfo = require('../models/incomemodel')
+var mygoals = require('../models/goalsmodel')
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -54,6 +55,27 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
 // router.get('/test', function(req, res, next) {
 //   res.render('incomecopy');
 // });
+
+//goals CRUD
+
+router.get('/mygoals', function(req, res, next) {
+  res.render('goals');
+});
+
+router.post('/savegoal', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var MyGoals = new mygoals({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = MyGoals.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((MyGoals) => {//if you use normal promise
+    console.log('goals', MyGoals)
+    res.redirect('/mygoals')
+  }).catch(err=> console.log(err+"could not save....."))
+});
+
 
 router.post('/loginverify', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal

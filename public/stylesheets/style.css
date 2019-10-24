@@ -1119,9 +1119,14 @@ ul.sidebar-menu li.active a i {
 
 
 a.logo {
-    /* background-image: url('/images/logo.png');
-background-repeat: no-repeat;
-padding-left: 30px;  /* width of the image plus a little extra padding */
+    background-size: cover;
+    box-align:left;
+    height: 50%;
+    width:50%;
+    background :url('/images/logo.png');
+    /* content:url('/images/logo.png');
+    padding: 5px;
+    width: 80px; */
 display: block;
 
 width: 80px; 
@@ -1137,9 +1142,7 @@ width: 80px;
     margin-top: 15px;
 
     text-transform: uppercase;
-    content:url('/images/logo.png');
-    padding: 5px;
-    width: 80px;
+    
 
 }
 
