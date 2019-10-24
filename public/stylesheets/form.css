@@ -1,14 +1,57 @@
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
+body {
+  height: 100%;
+  font-family: Montserrat-Regular, sans-serif;
+  box-sizing: border-box;
+  background:#05376D;
+  
+}
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 
-#form{
-    position:absolute;
-    top:50%;
-    left:50%;
-}
 
+input {
+	outline: none;
+	border: none;
+}
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+.container-contact1 {
+  width: 200px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  align-self: center;
+
+  padding: 100px 130px 100px 148px;
+}
+button:hover {
+	cursor: pointer;
+}
+input::-webkit-input-placeholder { color: #999999; }
+input:-moz-placeholder { color: #999999; }
+input::-moz-placeholder { color: #999999; }
+input:-ms-input-placeholder { color: #999999; }
+
+textarea::-webkit-input-placeholder { color: #999999; }
+textarea:-moz-placeholder { color: #999999; }
+textarea::-moz-placeholder { color: #999999; }
+textarea:-ms-input-placeholder { color: #999999; }
+.form-container{
+  margin:0;
+  
+}
 /* The popup form - hidden by default */
 /* Full-width input fields */
 .form-container input[type=text], .form-container input[type=password] {
@@ -21,13 +64,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 /* When the inputs get focus, do something */
 .form-container input[type=text]:focus, .form-container input[type=password]:focus {
-  background-color: #ddd;
+  background-color: #999999;
   outline: none;
+
 }
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #4CAF50;
+  background-color: #B37100;
   color: white;
   padding: 16px 20px;
   border: none;
