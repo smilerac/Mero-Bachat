@@ -2057,7 +2057,8 @@ textarea.form-control {
     .btn {
       -webkit-transition: none;
       -o-transition: none;
-      transition: none; } }
+      transition: none;
+      color : white; } }
   .btn:hover {
     color: #212529;
     text-decoration: none; }
@@ -2072,11 +2073,12 @@ textarea.form-control {
 
 a.btn.disabled,
 fieldset:disabled a.btn {
+  color : white;
   pointer-events: none; }
 
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
+  color : white;
+  background-color: #d16219;
   border-color: #007bff; }
   .btn-primary:hover {
     color: #fff;

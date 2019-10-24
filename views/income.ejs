@@ -77,7 +77,7 @@
       </div>
 
       <!--logo start-->
-      <a href="/home" class="logo">Pocket <span class="lite">Master</span></a>
+      <a href="/home" class="logo">Mero <span class="lite">Bachat</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -447,79 +447,19 @@
         <button class="open-button" onclick="openForm()"><%= income.name %></button>
         <div class="form-popup" id="myForm">
           <form action="" class="form-container">
-                <h1>BUSINESS POCKET</h1>
-                <label for="name"><b>NAME</b></label>
-                <input type="text" value="BUSINESS" name="name" required>
-                <label for="amount"><b>AMOUNT</b></label>
-                <input type="text" placeholder="Enter Value" name="ammount" required>
-            <button type="submit" class="btn">Enter</button>
+                <h1><%= income.name %> Pocket</h1>
+                <label for="name"><b>Name</b></label>
+                <input type="text" placeholder="Pocket Name" name="name" required>
+                <label for="amount"><b>Amount</b></abel>
+                <input type="text" placeholder="Rs." name="amount" required>
+                <button type="submit" class="btn">Enter</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
           </form>
         </div>
     </div>
     <br>
     <% }) %>
-       
-        <div class='extra'>
-            <button class="open-button" onclick="openForm()">EXTRA</button>
-            <div class="form-popup" id="myForm">
-                <form action="" class="form-container">
-                    <h1>EXTRA POCKET</h1>
-                    <label for="name"><b>NAME</b></label>
-                    <input type="text" value="EXTRA" name="name" required>
-                    <label for="amount"><b>AMOUNT</b></label>
-                    <input type="text" placeholder="Enter Value" name="ammount" required>
-                    <button type="submit" class="btn">Enter</button>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                </form>
-            </div>
-        </div>
-        <br>
-            <div class='loan'>
-                <button class="open-button" onclick="openForm()">LOAN</button>
-                    <div class="form-popup" id="myForm">
-                        <form action="" class="form-container">
-                            <h1>LOAN POCKET</h1>
-                            <label for="name"><b>NAME</b></label>
-                            <input type="text" value="LOAN" name="name" required>
-                            <label for="amount"><b>AMOUNT</b></label>
-                            <input type="text" placeholder="Enter Value" name="ammount" required>
-                            <button type="submit" class="btn">Enter</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                        </form>
-                    </div>
-                </div>
-                <br>
-                <div class='salary'>
-                    <button class="open-button" onclick="openForm()">SALARY</button>
-                        <div class="form-popup" id="myForm">
-                        <form action="" class="form-container">
-                            <h1>SALARY POCKET</h1>
-                            <label for="name"><b>NAME</b></label>
-                            <input type="text" value="SALARY" name="name" required>
-                            <label for="amount"><b>AMOUNT</b></label>
-                            <input type="text" placeholder="Enter Value" name="ammount" required>
-                            <button type="submit" class="btn">Enter</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                        </form>
-                    </div>
-                </div>
-                <br>
-                <div class='pocket-money'>
-                     <button class="open-button" onclick="openForm()">POCKET MONEY</button>
-                         <div class="form-popup" id="myForm">
-                         <form action="" class="form-container">
-                            <h1>SALARY POCKET</h1>
-                            <label for="name"><b>NAME</b></label>
-                            <input type="text" value="SALARY" name="name" required>
-                            <label for="amount"><b>AMOUNT</b></label>
-                            <input type="text" placeholder="Enter Value" name="ammount" required>
-                            <button type="submit" class="btn">Enter</button>
-                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                        </form>
-                    </div>
-                </div>
-                </section></section>
+    </section></section>
    
        
 
