@@ -442,17 +442,18 @@
   </div>
 </div>
 <br>
-
+<% incomes.forEach(function(income) {%>
     <div class='business'>
-        <button class="open-button" onclick="openForm()"></button>
+        <a href = "/income/<%= income._id %>" ><button class="open-button" onclick="openForm()"> <%= income.name %> Pocket <br> <i>Amount :</i> <%= income.amount %></button></a>
         <div class="form-popup" id="myForm">
-          <form action="" class="form-container">
-                <h1>  sthgPocket</h1>
-                <label for="name"><b>Name</b></label><br>
-                <label for="amount"><b>Amount</b></abel>
-                <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-    </div>
+          <!-- <form action="" class="form-container">
+                <h1>  <%= income.name %></h1>
+                <label for="amount"><b><%= income.amount %></b></abel>
+                <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form> -->
+              </div>
+            </div>
     <br>
+    <% }) %>
 
     </section></section>
    

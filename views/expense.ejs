@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <title>Creative - Bootstrap Admin Template</title>
+  <link href="/stylesheets/form.css" rel="stylesheet" /> 
 
   <link href="/stylesheets/123.css" rel="stylesheet">
    <!-- Bootstrap CSS -->
@@ -447,9 +448,10 @@
                 </form>
             </div>  
             </div>  
-            <div class='rent'>
-                  <% iexpenses.forEach(function(iexpense) {%>
-
+            <!-- <div class='rent'> -->
+                <% iexpenses.forEach(function(iexpense) {%>
+                <div class="edit">
+                  <div class="container-contact1">
                     <button class="open-button" onclick="openedit()"><%= iexpense.name %></button>
                     <div class="form-popup" id="myedit">
                       <form action="" class="form-container">
@@ -457,10 +459,13 @@
                             <label for="name"><b><%= iexpense.name %></b></label><br>
 
                             <label for="amount"><b>Rs. <%= iexpense.amount %></b></label>
-                       <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                       <br>
+                       <a href = '/form'><input type="button" class="btn " value="Edit"></a> 
+                      </form>
                     </div>
+                       <br>
+                  </div>
                     <br>
+                </div>
                     <% }) %>
 
     
