@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var logininfo = require('../models/loginmodel')
 var incomeinfo = require('../models/incomemodel')
+var expenseinfo = require('../models/expensemodel')
 var mygoals = require('../models/goalsmodel')
 
 // /* GET home page. */
@@ -32,9 +33,7 @@ router.get('/signup', function(req, res, next) {
 router.get('/setgoal', function(req, res, next) {
   res.render('setgoal');
 });
-router.get('/expense', function(req, res, next) {
-  res.render('expense');
-});
+
 router.get('/form', function(req, res, next) {
   res.render('form');
 });
@@ -63,6 +62,25 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
 // router.get('/test', function(req, res, next) {
 //   res.render('incomecopy');
 // });
+
+//expense CRUD
+router.get('/expense', function(req, res, next) {
+  res.render('expense');
+});
+
+router.post('/saveexpense', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var ExpenseInfo = new expenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = ExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((ExpenseInfo) => {//if you use normal promise
+    console.log('login info', ExpenseInfo)
+    res.redirect('/expense')
+  }).catch(err=> console.log(err+"could not save....."))
+});
 
 //goals CRUD
 
