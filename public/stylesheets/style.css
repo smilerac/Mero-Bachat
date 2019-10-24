@@ -1117,7 +1117,6 @@ ul.sidebar-menu li.active a i {
 }
 
 
-
 a.logo {
     background-size: cover;
     box-align:left;
@@ -1140,12 +1139,58 @@ width: 80px;
     float: left;
 
     margin-top: 15px;
-
+    position :relative;
     text-transform: uppercase;
     
 
 }
+/*
+#container {
+    height: 400px;
+    width: 400px;
+    position: relative;
+  }
+  #image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-left: 30px;
+    size: 10%;
+  }
+  #text {
+    z-index: 100;
+    position: absolute;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    left: 150px;
+    top: 350px;
+  }
+.image{
+    position :relative;
+    float: left;
+    margin-top: 15px;
+    width:10%;
+}
+.text{
+    display: block;
 
+width: 80px; 
+    
+    font-size: 22px;
+
+    font-weight: 300;
+
+    color: #fed189;
+
+    float: left;
+
+    margin-top: 15px;
+    position: absolute;
+    padding: 5px;
+    width: 80px;
+    text-transform: uppercase;
+}*/
 
 
 a.logo:hover, a.logo:focus {
