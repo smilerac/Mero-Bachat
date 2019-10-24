@@ -23,7 +23,7 @@ button {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-
+  margin :auto;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
