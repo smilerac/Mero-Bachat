@@ -10,6 +10,10 @@ var mygoals = require('../models/goalsmodel')
 //   res.render('index', { title: 'Express' });
 // });
 
+router.get('/saving', function(req, res, next) {
+  res.render('saving');
+});
+
 router.get('/login', function(req, res, next) {
   res.redirect('/');
 });
