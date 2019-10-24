@@ -436,7 +436,7 @@
     <div><h3></h3>ADD the pocket</h3>
         <button class="add" onclick="add()">+</button>
             <div class="form-popup" id="add">
-                <form action="/saveexpense" method = "post" class="form-container">
+                <form action="/saveiexpense" method = "post" class="form-container">
                     <h1>Add a pocket</h1>
                     <label for="name"><b>NAME</b></label>
                     <input type="text" placeholder="pocket name" name="name" required>
@@ -448,15 +448,15 @@
             </div>  
             </div>  
             <div class='rent'>
-                  <% expenses.forEach(function(expense) {%>
+                  <% iexpenses.forEach(function(iexpense) {%>
 
-                    <button class="open-button" onclick="openedit()"><%= expense.name %></button>
+                    <button class="open-button" onclick="openedit()"><%= iexpense.name %></button>
                     <div class="form-popup" id="myedit">
                       <form action="" class="form-container">
                             <h1>EDIT POCKET</h1>
-                            <label for="name"><b><%= expense.name %></b></label><br>
+                            <label for="name"><b><%= iexpense.name %></b></label><br>
 
-                            <label for="amount"><b>Rs. <%= expense.amount %></b></label>
+                            <label for="amount"><b>Rs. <%= iexpense.amount %></b></label>
                        <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
                        <br>
                     </div>
@@ -468,12 +468,12 @@
 </div>
 <br><br>
 <div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">Imediate obligations</button>
+        <button onclick="myFunction()" class="dropbtn">True Expenses</button>
         <div id="myDropdown" class="dropdown-content">
           <div><h3></h3>ADD the pocket</h3>
               <button class="add" onclick="add()">+</button>
                   <div class="form-popup" id="add">
-                      <form action="" class="form-container">
+                      <form action="savetexpense" class="form-container">
                           <h1 text-align="center">ADD THE POCKET</h1>
                           <label for="name"><b>NAME</b></label>
                           <input type="text" placeholder="pocket name" name="name" required>
@@ -483,15 +483,20 @@
                   </div>  
                   </div>  
                   <div class='rent'>
-                          <button class="open-button" onclick="openedit()">Rent</button>
-                          <div class="form-popup" id="myedit">
-                            <form action="" class="form-container">
-                                  <h1>EDIT POCKET</h1>
-                                  <label for="name"><b>NAME</b></label>
-                                  <label for="amount"><b>AMOUNT</b></label>
-                             <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                          </div>
+                      <% texpenses.forEach(function(texpense) {%>
+
+                        <button class="open-button" onclick="openedit()"><%= texpense.name %></button>
+                        <div class="form-popup" id="myedit">
+                          <form action="" class="form-container">
+                                <h1>EDIT POCKET</h1>
+                                <label for="name"><b><%= texpense.name %></b></label><br>
+    
+                                <label for="amount"><b>Rs. <%= texpense.amount %></b></label>
+                           <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
+                           <br>
                         </div>
+                        <br>
+                        <% }) %>
       </div>
       <br><br>
       <div class="dropdown">
@@ -500,7 +505,7 @@
               <div><h3></h3>ADD the pocket</h3>
                   <button class="add" onclick="add()">+</button>
                       <div class="form-popup" id="add">
-                          <form action="" class="form-container">
+                          <form action="savepexpense" class="form-container">
                               <h1>ADD THE POCKET</h1>
                               <label for="name"><b>NAME</b></label>
                               <input type="text" placeholder="pocket name" name="name" required>
@@ -510,15 +515,20 @@
                       </div>  
                       </div>  
                       <div class='rent'>
-                              <button class="open-button" onclick="openedit()">Rent</button>
-                              <div class="form-popup" id="myedit">
-                                <form action="" class="form-container">
-                                      <h1>EDIT POCKET</h1>
-                                      <label for="name"><b>NAME</b></label>
-                                      <label for="amount"><b>AMOUNT</b></label>
-                                 <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                                 
-                              </div>
+                          <% pexpenses.forEach(function(pexpense) {%>
+
+                            <button class="open-button" onclick="openedit()"><%= pexpense.name %></button>
+                            <div class="form-popup" id="myedit">
+                              <form action="" class="form-container">
+                                    <h1>EDIT POCKET</h1>
+                                    <label for="name"><b><%= pexpense.name %></b></label><br>
+        
+                                    <label for="amount"><b>Rs. <%= pexpense.amount %></b></label>
+                               <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
+                               <br>
+                            </div>
+                            <br>
+                            <% }) %>
           
               
             </div>

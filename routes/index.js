@@ -2,7 +2,9 @@ var express = require('express');
 var router = express.Router();
 var logininfo = require('../models/loginmodel')
 var incomeinfo = require('../models/incomemodel')
-var expenseinfo = require('../models/expensemodel')
+var iexpenseinfo = require('../models/Immediateexpensemodel')
+var texpenseinfo = require('../models/trueexpensemodel')
+var pexpenseinfo = require('../models/pleasureexpensemodel')
 var mygoals = require('../models/goalsmodel')
 
 // /* GET home page. */
@@ -65,25 +67,102 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
 // });
 
 //expense CRUD
+// router.get('/expense', function(req, res, next) {
+//   iexpenseinfo.find().exec((err,iexpenses) => {
+//     console.log('expenses...........',iexpenses);
+//     res.render('expense',{iexpenses}); //sends 'movies' data to 'viewMovies' view
+
+//     texpenseinfo.find().exec((err,texpenses) => {
+//       console.log('expenses...........',texpenses);
+//       res.render('expense',{texpenses});
+
+//     pexpenseinfo.find().exec((err,pexpenses) => {
+//       console.log('expenses...........',pexpenses);
+//       res.render('expense',{pexpenses});
+//   })
+// });
+
+
+
+
 router.get('/expense', function(req, res, next) {
-  expenseinfo.find().exec((err,expenses) => {
-    console.log('movies...........',expenses);
-    res.render('expense',{expenses}); //sends 'movies' data to 'viewMovies' view
-  })
-});
+      var locals = {};
+      var tasks = [
+          // Load users
+          function(callback) {
+              db.collection('iexpenses').find({}).toArray(function(err, iexpenses) {
+                  if (err) return callback(err);
+                  locals.iexpenses = iespenses;
+                  callback();
+              });
+          },
+          // Load colors
+          function(callback) {
+              db.collection('texpenses').find({}).toArray(function(err, texpenses) {
+                  if (err) return callback(err);
+                  locals.texpenses = texpenses;
+                  callback();
+              });
+          
+      
+
+      async.parallel(tasks, function(err) { //This function gets called after the two tasks have called their "task callbacks"
+          if (err) return next(err); //If an error occurred, let express handle it by calling the `next` function
+          // Here `locals` will be an object with `users` and `colors` keys
+          // Example: `locals = {users: [...], colors: [...]}`
+          db.close();
+          res.render('profile/index', locals);
+      });
+// å
 
 
-router.post('/saveexpense', function(req, res, next) {//all data is in req.body
+
+// router.get('/expense', function(req, res, next) {
+//   res.render('expense',[{iexpenses},{texpenses},{pexpenses}]);
+// });
+
+//Immediate obligation expense CRUD
+router.post('/saveiexpense', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
-  var ExpenseInfo = new expenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+  var IExpenseInfo = new iexpenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
     name : req.body.name,
     amount : req.body.amount
   }) 
-  var promise = ExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  var promise = IExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
   //await promise //if you use async function
-  promise.then((ExpenseInfo) => {//if you use normal promise
-    console.log('login info', ExpenseInfo)
-    res.redirect('/expense')
+  promise.then((IExpenseInfo) => {//if you use normal promise
+    console.log('login info', IExpenseInfo)
+    res.redirect('/iexpense')
+  }).catch(err=> console.log(err+"could not save....."))
+});
+
+//True expenses CRUD
+router.post('/savetexpense', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var TExpenseInfo = new texpenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = TExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((TExpenseInfo) => {//if you use normal promise
+    console.log('login info', TExpenseInfo)
+    res.redirect('/texpense')
+  }).catch(err=> console.log(err+"could not save....."))
+});
+
+//True expenses CRUD
+router.post('/savepexpense', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var PExpenseInfo = new pexpenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = PExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((PExpenseInfo) => {//if you use normal promise
+    console.log('login info', PExpenseInfo)
+    res.redirect('/pexpense')
   }).catch(err=> console.log(err+"could not save....."))
 });
 
