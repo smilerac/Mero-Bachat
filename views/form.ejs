@@ -7,15 +7,15 @@
 <body>
 <div class="edit">
         <div class="container-contact1">
-    <form action="" class="form-container" >
-          <h1>BUSINESS POCKET</h1>
+    <form action="/saveincome/<%= incomes._id %>" class="form-container" >
+          <h1><%= incomes.name %></h1>
           <label for="name"><b>NAME</b></label><br>
-          <input class="input1" type="text" value="BUSINESS" name="name" required><br>
+          <input class="input1" type="text" value="<%= incomes.name %>" name="name" required><br>
           <span class="shadow-input1"></span>
           <label for="amount"><b>AMOUNT</b></label><br>
-          <input type="text" class="input1" placeholder="Enter Value" name="ammount" required><br>
+          <input type="text" class="input1" value="<%= incomes.amount %>" name="amount" required><br>
           <span class="shadow-input1"></span>
-          <button type="button" class="btn" onclick="">Submit</button>
+          <button type="submit" class="btn" onclick="">Submit</button>
 </form>
 </div>
 </div>

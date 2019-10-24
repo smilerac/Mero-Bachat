@@ -1,0 +1,83 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<section class = "goalbody">
+<h1>Set your Goals</h1>
+<div class="box">
+  <button class ="button1"onclick="openForm()"> <a href="#popup1" class="goallink">Set Goals</a></button>
+</div>
+<div id="popup1" class="overlay">
+  <div class="popup">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card card-signin my-5" >
+          <div class="card-body">
+              <h5 class="card-title text-center">Your Goals</h5>
+            <h5 class="card-title text-center">New Goal</h5>
+            <form class="form-signin" method = "post" action = "/savegoal">
+              <div class="form-label-group">
+                <input type="text" name = "name" id="inputEmail" class="form-control" placeholder="Ex: Car" required autofocus>
+                <label for="inputEmail">What do you wanna save for? </label>
+              </div>
+
+              <div class="form-label-group">
+                <input type="number" min="0.0" id="inputAmount" class="form-control" placeholder="Amount" required>
+                <label for="inputAmount">Goal Amount</label>
+              </div>
+ 
+              <div class="custom-control custom-checkbox mb-3">
+              </div>
+              <button onclick="document.getElementById('id01').style.display='block'"class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="closeForm()">Set</button>
+             
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</div>
+</div>
+</section>
+
+
+
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    
+
+    <div class="container">
+      <label for="uname"><b>Edit</b></label>
+      <input type="text" placeholder="edit your goal" name="uname">
+
+      <label for="psw"><b>Delete</b></label>
+      <input type="text" placeholder="Delete completed goal" name="psw">
+        
+      <button type="submit" style="font-weight: bold;width: 6em;  height: 3em;">Submit</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
+
+<script type="text/javascript">
+  function closeForm(){
+    document.getElementById("popup1").style.display = "none";
+  }
+  function openForm(){
+    document.getElementById("popup1").style.display = "block";
+  }
+  
+  var overlay = document.getElementById('popup1');
+  
+window.onclick = function(event) {
+    if (event.target == overlay) {
+        overlay.style.display = "none";
+    }
+}
+</script>
