@@ -474,7 +474,7 @@
               <button class="add" onclick="add()">+</button>
                   <div class="form-popup" id="add">
                       <form action="savetexpense" class="form-container">
-                          <h1 text-align="center">ADD THE POCKET</h1>
+                          <h1 class="add">Add a pocket</h1>
                           <label for="name"><b>NAME</b></label>
                           <input type="text" placeholder="pocket name" name="name" required>
                           <button type="submit" class="btn">Enter</button>
@@ -484,7 +484,6 @@
                   </div>  
                   <div class='rent'>
                       <% texpenses.forEach(function(texpense) {%>
-
                         <button class="open-button" onclick="openedit()"><%= texpense.name %></button>
                         <div class="form-popup" id="myedit">
                           <form action="" class="form-container">
@@ -494,6 +493,7 @@
                                 <label for="amount"><b>Rs. <%= texpense.amount %></b></label>
                            <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
                            <br>
+                          </div>
                         </div>
                         <br>
                         <% }) %>
