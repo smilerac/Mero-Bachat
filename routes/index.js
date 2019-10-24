@@ -37,6 +37,7 @@ router.get('/setgoal', function(req, res, next) {
 router.get('/form', function(req, res, next) {
   res.render('form');
 });
+
 router.get('/income', function(req, res, next) {
   incomeinfo.find().exec((err,incomes) => {
     console.log('movies...........',incomes);
@@ -65,8 +66,12 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
 
 //expense CRUD
 router.get('/expense', function(req, res, next) {
-  res.render('expense');
+  expenseinfo.find().exec((err,expenses) => {
+    console.log('movies...........',expenses);
+    res.render('expense',{expenses}); //sends 'movies' data to 'viewMovies' view
+  })
 });
+
 
 router.post('/saveexpense', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal

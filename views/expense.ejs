@@ -345,7 +345,7 @@
                       </a>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="/expense" class="">
                           <i class="expenses"></i>
                           <span>Expenses Wallet</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
@@ -356,7 +356,7 @@
             </ul>
           </li>
           <li class="sub-menu">
-            <a href="javascript:;" class="">
+            <a href="/expense" class="">
                           <i class="icon_desktop"></i>
                           <span>Savings Wallet</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
@@ -448,16 +448,20 @@
             </div>  
             </div>  
             <div class='rent'>
-                    <button class="open-button" onclick="openedit()">Rent</button>
+                  <% expenses.forEach(function(expense) {%>
+
+                    <button class="open-button" onclick="openedit()"><%= expense.name %></button>
                     <div class="form-popup" id="myedit">
                       <form action="" class="form-container">
                             <h1>EDIT POCKET</h1>
-                            <label for="name"><b>NAME</b></label><br>
+                            <label for="name"><b><%= expense.name %></b></label><br>
 
-                            <label for="amount"><b>AMOUNT</b></label>
+                            <label for="amount"><b>Rs. <%= expense.amount %></b></label>
                        <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                       
+                       <br>
                     </div>
+                    <br>
+                    <% }) %>
 
     
   </div>
