@@ -12,32 +12,48 @@
         <a class="closemain" href="/home">&times;</a>
         <div class="amountsaved">
                 <br>
-            <h2>You Have Saved</h2>
-            <input type="text" class="input1"> </input>
+            <h2>You Have Saved <b><%= sav %></b></h2>
+            <!-- <input type="text" class="input1"> </input> -->
             <br>
             <br>
             <br>
         </div>
         <div class="goalwas">
-                <h2>Your Goal was</h2>
-                <input type="text" class="input1"> </input>
+                <h2>Your Goal was <b><%= gaddall %></b></h2>
+                <!-- <input type="text" class="input1"> </input> -->
                 <br>
                 <br>
                 <br>
             </div>
             <div class="box">
+
+               
                     <a class="button" href="#popup1">ok</a>
                 </div>
-                
+                <% if(sav>=gaddall){ %>
+
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <h2>Here i am</h2>
+                        <h2>Congratulations, Your weekly Goal was met</h2>
                         <a class="close" href="#">&times;</a>
                         <div class="content">
-                            Thank to pop me out of that button, but now i'm done so you can close this window.
-                        </div>
+                                
+                            </div>
                     </div>
                 </div>
+                <% } 
+                else if(sav<=gaddall) {%>
+                    <div id="popup1" class="overlay">
+                            <div class="popup">
+                                <h2>Your weekly Goal was not met</h2>
+                                <a class="close" href="#">&times;</a>
+                                <div class="content">
+                                        
+                                    </div>
+                            </div>
+                        </div>
+
+                    <% }%>
         </div>
     </body>
 

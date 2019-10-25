@@ -12,9 +12,44 @@ var mygoals = require('../models/goalsmodel')
 //   res.render('index', { title: 'Express' });
 // });
 
-router.get('/saving', function(req, res, next) {
-  res.render('saving');
+
+
+router.get("/saving", function (req, res, next) {
+
+  incomeinfo.find().exec((err, incomes) => {
+    var iaddall = 0
+    console.log('name...........',incomes);
+    for(var i in incomes){    
+      iaddall = iaddall + incomes[i].amount
+    }
+    iexpenseinfo.find().exec((err, expenses) => {
+      var eaddall = 0
+      for(var i in expenses){    
+        eaddall = eaddall + expenses[i].amount
+        console.log('amount...........',expenses.amount);
+  
+      }
+    mygoals.find().exec((err, goals) => {
+      var gaddall = 0
+      for(var i in goals){    
+        gaddall = gaddall + goals[i].amount
+        console.log('amount...........',goals.amount);
+
+        var sav = iaddall - eaddall
+        res.render('saving',{sav,gaddall});
+    }
+    })
+  })
+})
 });
+
+
+
+    
+
+
+
+
 
 router.get('/login', function(req, res, next) {
   res.redirect('/');
@@ -299,7 +334,11 @@ router.get('/editexpense/:expenseId', function(req, res, next) {
 //savings
 router.get('/mygoals', function(req, res, next) {
   var gaddall = 0
-  mygoals.find().exec((err,goals) => {
+  mygoals.find().exec(
+    
+    
+    
+    (err,goals) => {
     // console.log('name...........',incomes);
     for(var i in goals){    
       gaddall = gaddall + goals[i].amount
