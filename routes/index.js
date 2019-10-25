@@ -73,6 +73,123 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
   }).catch(err=> console.log(err+"could not save....."))
 });
 
+router.get('/income/:incomeId', function(req, res, next) {
+  // var movieId = req.params.id;
+  // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+  //   console.log('moviesssssss', movie)
+  // }
+  //console.log(req.paramsmovieId)
+  
+  incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+    // var movie = item => item._id === movieId
+    res.render('eachincome',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+  })
+})
+
+router.get('/edit/:incomeId', function(req, res, next) {
+    // var movieId = req.params.id;
+    // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+    //   console.log('moviesssssss', movie)
+    // }
+    //console.log(req.paramsmovieId)
+    
+    incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+      // var movie = item => item._id === movieId
+      res.render('form',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+    })
+  })
+  
+  router.post('/saveincome/:incomeId', function(req, res, next) {//all data is in req.body
+    console.log(req.body) //shows value in terminal
+    incomeinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
+     // console.log(movieId+"this is iddddd")
+      res.redirect("/income")
+    })
+  });
+
+  router.get('/remove/:incomeId', function(req, res, next){
+    incomeinfo.deleteOne({ _id : req.params.incomeId}, function(err, incomes){
+     // console.log(movieId + 'heyyyy')
+      // var movie = item => item._id === movieId
+     res.redirect("/income")
+      // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+    })
+  })
+
+
+//expense CRUD
+router.get('/expense', function(req, res, next) {
+  var addall = 0
+  iexpenseinfo.find().exec((err,expenses) => {
+    // console.log('name...........',incomes);
+    for(var i in expenses){    
+      addall = addall + expenses[i].amount
+      console.log('amount...........',expenses.amount);
+
+    }
+    res.render('expense',{expenses,addall}); //sends 'movies' data to 'viewMovies' view
+  })
+});
+
+// router.post('/addpocket', function(req, res, next) {//all data is in req.body
+//   console.log(req.body) //shows value in terminal
+//   var IncomeInfo = new incomeinfo({ //from top of the page, i. e variable name of model //new object instantiated
+//     name : req.body.name,
+//     amount : req.body.amount
+//   }) 
+//   var promise = IncomeInfo.save()    //movie.save() returns promise so promise variable used only to represent
+//   //await promise //if you use async function
+//   promise.then((IncomeInfo) => {//if you use normal promise
+//     console.log('login info', IncomeInfo)
+//     res.redirect('/income')
+//   }).catch(err=> console.log(err+"could not save....."))
+// });
+
+// router.get('/income/:incomeId', function(req, res, next) {
+//   // var movieId = req.params.id;
+//   // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+//   //   console.log('moviesssssss', movie)
+//   // }
+//   //console.log(req.paramsmovieId)
+  
+//   incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+//     // var movie = item => item._id === movieId
+//     res.render('eachincome',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+//   })
+// })
+
+// router.get('/edit/:incomeId', function(req, res, next) {
+//     // var movieId = req.params.id;
+//     // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+//     //   console.log('moviesssssss', movie)
+//     // }
+//     //console.log(req.paramsmovieId)
+    
+//     incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+//       // var movie = item => item._id === movieId
+//       res.render('form',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+//     })
+//   })
+  
+//   router.post('/saveincome/:incomeId', function(req, res, next) {//all data is in req.body
+//     console.log(req.body) //shows value in terminal
+//     incomeinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
+//      // console.log(movieId+"this is iddddd")
+//       res.redirect("/income")
+//     })
+//   });
+
+//   router.get('/remove/:incomeId', function(req, res, next){
+//     incomeinfo.deleteOne({ _id : req.params.incomeId}, function(err, incomes){
+//      // console.log(movieId + 'heyyyy')
+//       // var movie = item => item._id === movieId
+//      res.redirect("/income")
+//       // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+//     })
+//   })
+
+
+
 // router.get('/test', function(req, res, next) {
 //   res.render('incomecopy');
 // });
@@ -96,36 +213,36 @@ router.post('/addpocket', function(req, res, next) {//all data is in req.body
 
 
 
-router.get('/expense', function(req, res, next) {
-  var locals = {};
-    var tasks = [
-          // Load users
-          function(callback) {
-              db.collection('iexpenses').find({}).toArray(function(err, iexpenses) {
-                  if (err) return callback(err);
-                  locals.iexpenses = iexpenses;
-                  callback();
-              });
-          },
-          // Load colors
-          function(callback) {
-              db.collection('texpenses').find({}).toArray(function(err, texpenses) {
-                  if (err) return callback(err);
-                  locals.texpenses = texpenses;
-                  callback();
-              });
-            }
+// router.get('/expense', function(req, res, next) {
+//   var locals = {};
+//     var tasks = [
+//           // Load users
+//           function(callback) {
+//               db.collection('iexpenses').find({}).toArray(function(err, iexpenses) {
+//                   if (err) return callback(err);
+//                   locals.iexpenses = iexpenses;
+//                   callback();
+//               });
+//           },
+//           // Load colors
+//           function(callback) {
+//               db.collection('texpenses').find({}).toArray(function(err, texpenses) {
+//                   if (err) return callback(err);
+//                   locals.texpenses = texpenses;
+//                   callback();
+//               });
+//             }
           
-      ]
+//       ]
 
-      async.parallel(tasks, function(err) { //This function gets called after the two tasks have called their "task callbacks"
-          if (err) return next(err); //If an error occurred, let express handle it by calling the `next` function
-          // Here `locals` will be an object with `users` and `colors` keys
-          // Example: `locals = {users: [...], colors: [...]}`
-          db.close();
-          res.render('profile/index', locals);
-      });
-})
+//       async.parallel(tasks, function(err) { //This function gets called after the two tasks have called their "task callbacks"
+//           if (err) return next(err); //If an error occurred, let express handle it by calling the `next` function
+//           // Here `locals` will be an object with `users` and `colors` keys
+//           // Example: `locals = {users: [...], colors: [...]}`
+//           db.close();
+//           res.render('profile/index', locals);
+//       });
+// })
 
 
 
@@ -181,14 +298,26 @@ router.get('/expense', function(req, res, next) {
 
 //goals CRUD
 
+
 router.get('/mygoals', function(req, res, next) {
-  res.render('goals');
+  var addall = 0
+  mygoals.find().exec((err,goals) => {
+    // console.log('name...........',incomes);
+    for(var i in goals){    
+      addall = addall + goals[i].amount
+      console.log('amount...........',goals.amount);
+
+    }
+    res.render('goals',{goals,addall}); //sends 'movies' data to 'viewMovies' view
+  })
 });
+
+
 
 router.post('/savegoal', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
   var MyGoals = new mygoals({ //from top of the page, i. e variable name of model //new object instantiated
-    name : req.body.name,
+    for : req.body.for,
     amount : req.body.amount
   }) 
   var promise = MyGoals.save()    //movie.save() returns promise so promise variable used only to represent
@@ -198,6 +327,13 @@ router.post('/savegoal', function(req, res, next) {//all data is in req.body
     res.redirect('/mygoals')
   }).catch(err=> console.log(err+"could not save....."))
 });
+
+router.get('/editgoal/:goalId', function(req, res, next) {
+  incomeinfo.findOne({ _id : req.params.goalId}, function(err, goal){
+    res.render('form',{goal}); //sends 'movies' data to 'viewOne' view
+  })
+})
+
 
 
 router.post('/loginverify', function(req, res, next) {//all data is in req.body

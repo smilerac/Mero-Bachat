@@ -10,8 +10,6 @@
   <link rel="shortcut icon" href="/images/favicon.png">
 
   <title>Creative - Bootstrap Admin Template</title>
-  <link href="/stylesheets/form.css" rel="stylesheet" /> 
-
   <link href="/stylesheets/123.css" rel="stylesheet">
    <!-- Bootstrap CSS -->
    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -58,8 +56,7 @@
 <link rel="stylesheet" href="/stylesheets/css/flaticon.css">
 <link rel="stylesheet" href="/stylesheets/css/icomoon.css">
 <link rel="stylesheet" href="/stylesheets/css/style.css">
-<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
-  <!-- =======================================================
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" /> <!-- =======================================================
     Theme Name: NiceAdmin
     Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
     Author: BootstrapMade
@@ -414,6 +411,7 @@
       </div>
     </aside>
     <!--sidebar end-->
+    <br>
 
     <!--main content start-->
     <section id="main-content">
@@ -421,21 +419,35 @@
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-            <h3 class="page-header"><i class="fa fa-laptop"></i> Dashboard</h3>
+            <h3 class="page-header"><i class="fa fa-laptop"></i> Total Expenses = <%= addall %></h3>
             <!-- <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
               <li><i class="fa fa-laptop"></i>Dashboard</li>
             </ol> -->
           </div>
         </div>
+        <div class="pro">ADD
+          <button class="add" onclick="add()">+</button></div>
+          <div class="form-popup" id="add">
+            <form action="/addpocket" class="form-container" method = 'post'>
+              <h1>Add a Pocket</h1>
+              <label for="name"><b>Name</b></label>
+              <input type="text" placeholder="Pocket Name" name="name" required>
+              <label for="amount"><b>Amount</b></abel>
+              <input type="text" placeholder="Rs." name="amount" required>
+              <button type="submit" class="btn">Enter</button>
+              <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
+              </form>
+          </div>
+          <br>
 
-
+   <% expenses.forEach(function(expense) {%>
 
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn">Immediate Obligations</button>
+  <button onclick="myFunction()" class="dropbtn"><%= expense.name %>Rs. <%= expense.amount %></button>
   <div id="myDropdown" class="dropdown-content">
-    <div><h3></h3>ADD the pocket</h3>
-        <button class="add" onclick="add()">+</button>
+    <!-- <div><h3></h3>ADD the pocket</h3>
+        <button class="add" onclick="add()">+</button> -->
             <div class="form-popup" id="add">
                 <form action="/saveiexpense" method = "post" class="form-container">
                     <h1>Add a pocket</h1>
@@ -447,94 +459,38 @@
                     <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
                 </form>
             </div>  
+            <br>
+
             </div>  
+            <br>
+</div>
+<br>
+<br>
+
+            <% }) %>
             <!-- <div class='rent'> -->
-                <% iexpenses.forEach(function(iexpense) {%>
-                <div class="edit">
+                <!-- <div class="edit">
                   <div class="container-contact1">
-                    <button class="open-button" onclick="openedit()"><%= iexpense.name %></button>
+                    <button class="open-button" onclick="openedit()">expensenamehere</button>
                     <div class="form-popup" id="myedit">
                       <form action="" class="form-container">
                             <h1>EDIT POCKET</h1>
-                            <label for="name"><b><%= iexpense.name %></b></label><br>
+                            <label for="name"><b>expensenamehere</b></label><br>
 
-                            <label for="amount"><b>Rs. <%= iexpense.amount %></b></label>
+                            <label for="amount"><b>Rs. expenseamounthere</b></label>
                        <a href = '/form'><input type="button" class="btn " value="Edit"></a> 
                       </form>
                     </div>
                        <br>
-                  </div>
-                    <br>
+                  </div> -->
                 </div>
-                    <% }) %>
+                    
 
     
   </div>
 </div>
 <br><br>
-<div class="dropdown">
-        <button onclick="myFunction()" class="dropbtn">True Expenses</button>
-        <div id="myDropdown" class="dropdown-content">
-          <div><h3></h3>ADD the pocket</h3>
-              <button class="add" onclick="add()">+</button>
-                  <div class="form-popup" id="add">
-                      <form action="savetexpense" class="form-container">
-                          <h1 class="add">Add a pocket</h1>
-                          <label for="name"><b>NAME</b></label>
-                          <input type="text" placeholder="pocket name" name="name" required>
-                          <button type="submit" class="btn">Enter</button>
-                          <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
-                      </form>
-                  </div>  
-                  </div>  
-                  <div class='rent'>
-                      <% texpenses.forEach(function(texpense) {%>
-                        <button class="open-button" onclick="openedit()"><%= texpense.name %></button>
-                        <div class="form-popup" id="myedit">
-                          <form action="" class="form-container">
-                                <h1>EDIT POCKET</h1>
-                                <label for="name"><b><%= texpense.name %></b></label><br>
-    
-                                <label for="amount"><b>Rs. <%= texpense.amount %></b></label>
-                           <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                           <br>
-                          </div>
-                        </div>
-                        <br>
-                        <% }) %>
-      </div>
-      <br><br>
-      <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">Pleasures</button>
-            <div id="myDropdown" class="dropdown-content">
-              <div><h3></h3>ADD the pocket</h3>
-                  <button class="add" onclick="add()">+</button>
-                      <div class="form-popup" id="add">
-                          <form action="savepexpense" class="form-container">
-                              <h1>ADD THE POCKET</h1>
-                              <label for="name"><b>NAME</b></label>
-                              <input type="text" placeholder="pocket name" name="name" required>
-                              <button type="submit" class="btn">Enter</button>
-                              <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
-                          </form>
-                      </div>  
-                      </div>  
-                      <div class='rent'>
-                          <% pexpenses.forEach(function(pexpense) {%>
 
-                            <button class="open-button" onclick="openedit()"><%= pexpense.name %></button>
-                            <div class="form-popup" id="myedit">
-                              <form action="" class="form-container">
-                                    <h1>EDIT POCKET</h1>
-                                    <label for="name"><b><%= pexpense.name %></b></label><br>
-        
-                                    <label for="amount"><b>Rs. <%= pexpense.amount %></b></label>
-                               <a href = '/form'><input type="button" class="btn " value="Edit"></a> </form></div>
-                               <br>
-                            </div>
-                            <br>
-                            <% }) %>
-          
               
             </div>
           </div>
