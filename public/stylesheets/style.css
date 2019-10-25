@@ -11,7 +11,19 @@
 @import url(line-icons.css);
 
 
-  
+.pro{
+    font-size: 20px;
+    font:bold;
+    
+}
+.img{
+    margin:0;
+    align-self: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+}  
 
 .flaticon-business{
     background :url('/images/icon/icons8-business-100.png');
@@ -49,7 +61,7 @@
     width:50%;
 }
 body {
-    background :url('/images/o.jpg')no-repeat top right fixed;
+    background-color:#00B3B3;
     background-size: cover;
     background-position: 5px 63px;    
     box-align:right;
@@ -70,6 +82,11 @@ body {
 
 }
 
+.move{
+    position: absolute;
+    top:40%;
+    left:40%;
+}
 h1,h2,h3,h4,h5{
 
     font-weight: 900;
@@ -664,9 +681,9 @@ ul.sidebar-menu li ul.sub li a {
 
     padding: 0 0 0 32px;
 
-    line-height: 35px;
+    line-height: 45px;
 
-    height: 35px;
+    height: 45px;
 
     -webkit-transition: all 0.3s ease;
 
@@ -708,7 +725,7 @@ ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
 
 ul.sidebar-menu li{
 
-    line-height: 20px !important;
+    line-height: 40px !important;
 
     /*margin-bottom: 5px;
 
@@ -728,7 +745,7 @@ ul.sidebar-menu li{
 
 ul.sidebar-menu li.sub-menu{
 
-    line-height: 15px;
+    line-height: 40px;
 
     font-size: 16px;
 
@@ -1120,8 +1137,7 @@ ul.sidebar-menu li.active a i {
 a.logo {
     background-size: cover;
     box-align:left;
-    height: 50%;
-    width:50%;
+    
     background :url('/images/logo.png');
     /* content:url('/images/logo.png');
     padding: 5px;
@@ -1142,6 +1158,15 @@ width: 80px;
     position :relative;
     text-transform: uppercase;
     
+
+}
+.mainlogo{
+    position:absolute;
+    left:2%;
+}
+.logoo{
+position: absolute;
+left:10%;
 
 }
 /*
@@ -1867,7 +1892,7 @@ div[data-role="editor-toolbar"] {
 
   border-bottom: none;
 
-  opacity: 0.7;
+  opacity: 1;
 
   text-transform: uppercase;
 

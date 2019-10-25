@@ -16,11 +16,10 @@
   border-color: black;
   border-width: 2px;
   color:grey;
-  
   padding: 100px 130px 100px 148px;
 }
 .color{
-    background-color: #05376D;
+    background-color: #00B3B3;
 }
 
 .overlay {
@@ -65,6 +64,19 @@
     color: #333;
   }
   .popup .close:hover {
+    color: grey;
+  }
+ .closemain {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    columns: #ffffff;;
+  }
+   .closemain:hover {
     color: grey;
   }
   .popup .content {
