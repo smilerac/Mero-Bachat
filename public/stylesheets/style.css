@@ -1137,8 +1137,9 @@ ul.sidebar-menu li.active a i {
 a.logo {
     background-size: cover;
     box-align:left;
-    
-    background :url('/images/logo.png');
+    height: 50%;
+    width:50%;
+    /* background :url('/images/logo.png'); */
     /* content:url('/images/logo.png');
     padding: 5px;
     width: 80px; */

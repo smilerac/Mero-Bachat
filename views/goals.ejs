@@ -2,13 +2,14 @@
   <link rel="stylesheet" type="text/css" href="/stylesheets/mygoals.css">
 </head>
 <section class = "goalbody">
-<h1>Your Goals</h1>
+<h1>Your Goals for the week</h1>
 
 
+<h2>Total Saving Goal for the week = <%= addall %></h2>
 
 <% goals.forEach(function(goal) {%>
 
-      <h2>Amount to save : <%= goal.amount %> </h2>
+      <h2></h2>Amount to save : <%= goal.amount %> </h2>
       <h2>Saving for : <%= goal.for %></h2>
       <a href = "/editgoal/<%= goal._id %>" > <button  onclick="openForm()"> <a href="#popup1">Edit</a></button></a>
       <a href = "/deletegoal/<%= goal._id %>" ><button position="right">Delete</button></a>

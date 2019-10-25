@@ -6,11 +6,6 @@ var iexpenseinfo = require('../models/Immediateexpensemodel')
 var texpenseinfo = require('../models/trueexpensemodel')
 var pexpenseinfo = require('../models/pleasureexpensemodel')
 var mygoals = require('../models/goalsmodel')
-var async = require('async');
-// var db = require('database.js');
-
-// var _ = require('lodash');
-
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
@@ -50,11 +45,18 @@ router.get('/form', function(req, res, next) {
 });
 
 router.get('/income', function(req, res, next) {
+  var addall = 0
   incomeinfo.find().exec((err,incomes) => {
-    console.log('movies...........',incomes);
-    res.render('income',{incomes}); //sends 'movies' data to 'viewMovies' view
+    // console.log('name...........',incomes);
+    for(var i in incomes){    
+      addall = addall + incomes[i].amount
+      console.log('amount...........',incomes.amount);
+
+    }
+    res.render('income',{incomes,addall}); //sends 'movies' data to 'viewMovies' view
   })
 });
+
 
 //income crud part
 router.post('/addpocket', function(req, res, next) {//all data is in req.body
@@ -113,6 +115,81 @@ router.get('/edit/:incomeId', function(req, res, next) {
       // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
     })
   })
+
+
+//expense CRUD
+router.get('/expense', function(req, res, next) {
+  var addall = 0
+  iexpenseinfo.find().exec((err,expenses) => {
+    // console.log('name...........',incomes);
+    for(var i in expenses){    
+      addall = addall + expenses[i].amount
+      console.log('amount...........',expenses.amount);
+
+    }
+    res.render('expense',{expenses,addall}); //sends 'movies' data to 'viewMovies' view
+  })
+});
+
+// router.post('/addpocket', function(req, res, next) {//all data is in req.body
+//   console.log(req.body) //shows value in terminal
+//   var IncomeInfo = new incomeinfo({ //from top of the page, i. e variable name of model //new object instantiated
+//     name : req.body.name,
+//     amount : req.body.amount
+//   }) 
+//   var promise = IncomeInfo.save()    //movie.save() returns promise so promise variable used only to represent
+//   //await promise //if you use async function
+//   promise.then((IncomeInfo) => {//if you use normal promise
+//     console.log('login info', IncomeInfo)
+//     res.redirect('/income')
+//   }).catch(err=> console.log(err+"could not save....."))
+// });
+
+// router.get('/income/:incomeId', function(req, res, next) {
+//   // var movieId = req.params.id;
+//   // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+//   //   console.log('moviesssssss', movie)
+//   // }
+//   //console.log(req.paramsmovieId)
+  
+//   incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+//     // var movie = item => item._id === movieId
+//     res.render('eachincome',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+//   })
+// })
+
+// router.get('/edit/:incomeId', function(req, res, next) {
+//     // var movieId = req.params.id;
+//     // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+//     //   console.log('moviesssssss', movie)
+//     // }
+//     //console.log(req.paramsmovieId)
+    
+//     incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
+//       // var movie = item => item._id === movieId
+//       res.render('form',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
+//     })
+//   })
+  
+//   router.post('/saveincome/:incomeId', function(req, res, next) {//all data is in req.body
+//     console.log(req.body) //shows value in terminal
+//     incomeinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
+//      // console.log(movieId+"this is iddddd")
+//       res.redirect("/income")
+//     })
+//   });
+
+//   router.get('/remove/:incomeId', function(req, res, next){
+//     incomeinfo.deleteOne({ _id : req.params.incomeId}, function(err, incomes){
+//      // console.log(movieId + 'heyyyy')
+//       // var movie = item => item._id === movieId
+//      res.redirect("/income")
+//       // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+//     })
+//   })
+
+
+
 // router.get('/test', function(req, res, next) {
 //   res.render('incomecopy');
 // });
@@ -134,47 +211,39 @@ router.get('/edit/:incomeId', function(req, res, next) {
 // });
 
 
-// incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
 
 
-router.get('/expense', function(req, res, next) {
-      var locals = {};
-      var tasks = [
-          // Load users
-          function(callback) {
-            iexpenseinfo.find(),function(err, iexpenses){
-              if (err) return callback(err);
-                  locals.iexpenses = iexpenses;
-                  callback();
-              };
-          },
-          function(callback) {
-            pexpenseinfo.find(), function(err, pexpenses){
-              if (err) return callback(err);
-                locals.pexpenses = pexpenses;
-                callback();
-            };
-        },
-          // Load colors
-          function(callback) {
-            texpenseinfo.find(), function(err, texpenses){
-              if (err) return callback(err);
-                  locals.texpenses = texpenses;
-                  callback();
-              };
-            }
-            ]
+// router.get('/expense', function(req, res, next) {
+//   var locals = {};
+//     var tasks = [
+//           // Load users
+//           function(callback) {
+//               db.collection('iexpenses').find({}).toArray(function(err, iexpenses) {
+//                   if (err) return callback(err);
+//                   locals.iexpenses = iexpenses;
+//                   callback();
+//               });
+//           },
+//           // Load colors
+//           function(callback) {
+//               db.collection('texpenses').find({}).toArray(function(err, texpenses) {
+//                   if (err) return callback(err);
+//                   locals.texpenses = texpenses;
+//                   callback();
+//               });
+//             }
+          
+//       ]
 
-      async.parallel(tasks, function(err) { //This function gets called after the two tasks have called their "task callbacks"
-          if (err) return next(err); //If an error occurred, let express handle it by calling the `next` function
-          // Here `locals` will be an object with `users` and `colors` keys
-          // Example: `locals = {users: [...], colors: [...]}`
-          db.close();
-          res.render('expense', {locals});
-      });
-    })
-  
-// å
+//       async.parallel(tasks, function(err) { //This function gets called after the two tasks have called their "task callbacks"
+//           if (err) return next(err); //If an error occurred, let express handle it by calling the `next` function
+//           // Here `locals` will be an object with `users` and `colors` keys
+//           // Example: `locals = {users: [...], colors: [...]}`
+//           db.close();
+//           res.render('profile/index', locals);
+//       });
+// })
+
 
 
 
@@ -228,12 +297,21 @@ router.get('/expense', function(req, res, next) {
 // });
 
 //goals CRUD
+
+
 router.get('/mygoals', function(req, res, next) {
+  var addall = 0
   mygoals.find().exec((err,goals) => {
-    console.log('goals...........',goals);
-    res.render('goals',{goals}); //sends 'movies' data to 'viewMovies' view
+    // console.log('name...........',incomes);
+    for(var i in goals){    
+      addall = addall + goals[i].amount
+      console.log('amount...........',goals.amount);
+
+    }
+    res.render('goals',{goals,addall}); //sends 'movies' data to 'viewMovies' view
   })
 });
+
 
 
 router.post('/savegoal', function(req, res, next) {//all data is in req.body
@@ -255,23 +333,6 @@ router.get('/editgoal/:goalId', function(req, res, next) {
     res.render('form',{goal}); //sends 'movies' data to 'viewOne' view
   })
 })
-
-// router.post('/saveincome/:incomeId', function(req, res, next) {//all data is in req.body
-//   console.log(req.body) //shows value in terminal
-//   incomeinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
-//    // console.log(movieId+"this is iddddd")
-//     res.redirect("/income")
-//   })
-// });
-
-// router.get('/remove/:incomeId', function(req, res, next){
-//   incomeinfo.deleteOne({ _id : req.params.incomeId}, function(err, incomes){
-//    // console.log(movieId + 'heyyyy')
-//     // var movie = item => item._id === movieId
-//    res.redirect("/income")
-//     // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
-//   })
-// })
 
 
 
