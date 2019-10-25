@@ -49,15 +49,19 @@ html {
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
-  .incomeimg{
+ /* .abc{
   margin:0;
   align-self: right;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width:50%;
+  float: right;
+  top:50%;
+  right:0%;
   
-}
+  
+}*/
 body {
   margin: 0;
   font-family: Comfortaa;
@@ -70,6 +74,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
+  /*background: url("/images/incom.png");*/
 
   /* background-color: #fff; } */
 
