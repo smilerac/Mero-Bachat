@@ -45,15 +45,15 @@ router.get('/form', function(req, res, next) {
 });
 
 router.get('/income', function(req, res, next) {
-  var addall = 0
+  var iaddall = 0
   incomeinfo.find().exec((err,incomes) => {
     // console.log('name...........',incomes);
     for(var i in incomes){    
-      addall = addall + incomes[i].amount
+      iaddall = iaddall + incomes[i].amount
       console.log('amount...........',incomes.amount);
 
     }
-    res.render('income',{incomes,addall}); //sends 'movies' data to 'viewMovies' view
+    res.render('income',{incomes,iaddall}); //sends 'movies' data to 'viewMovies' view
   })
 });
 
@@ -119,15 +119,15 @@ router.get('/edit/:incomeId', function(req, res, next) {
 
 //expense CRUD
 router.get('/expense', function(req, res, next) {
-  var addall = 0
+  var eaddall = 0
   iexpenseinfo.find().exec((err,expenses) => {
     // console.log('name...........',incomes);
     for(var i in expenses){    
-      addall = addall + expenses[i].amount
+      eaddall = eaddall + expenses[i].amount
       console.log('amount...........',expenses.amount);
 
     }
-    res.render('expense',{expenses,addall}); //sends 'movies' data to 'viewMovies' view
+    res.render('expense',{expenses,eaddall}); //sends 'movies' data to 'viewMovies' view
   })
 });
 
@@ -299,16 +299,18 @@ router.get('/expense', function(req, res, next) {
 //goals CRUD
 
 
+
+//savings
 router.get('/mygoals', function(req, res, next) {
-  var addall = 0
+  var gaddall = 0
   mygoals.find().exec((err,goals) => {
     // console.log('name...........',incomes);
     for(var i in goals){    
-      addall = addall + goals[i].amount
+      gaddall = gaddall + goals[i].amount
       console.log('amount...........',goals.amount);
 
     }
-    res.render('goals',{goals,addall}); //sends 'movies' data to 'viewMovies' view
+    res.render('goals',{goals,gaddall}); //sends 'movies' data to 'viewMovies' view
   })
 });
 
