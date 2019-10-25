@@ -1,0 +1,23 @@
+<html><head>
+    <title>dbchjdb</title>
+
+</head>
+<link href="/stylesheets/form.css" rel="stylesheet" /> 
+
+<body>
+<div class="edit">
+        <div class="container-contact1">
+    <form action="/saveexpense/<%= oneexpense._id %>" class="form-container" >
+          <h1><%= oneexpense.name %></h1>
+          <label for="name"><b>NAME</b></label><br>
+          <input class="input1" type="text" value="<%= oneexpense.name %>" name="name" required><br>
+          <span class="shadow-input1"></span>
+          <label for="amount"><b>AMOUNT</b></label><br>
+          <input type="text" class="input1" value="<%= oneexpense.amount %>" name="amount" required><br>
+          <span class="shadow-input1"></span>
+          <button type="submit" class="btn" onclick="">Submit</button>
+</form>
+</div>
+</div>
+</body>
+</html>

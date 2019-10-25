@@ -133,7 +133,7 @@ router.get('/expense', function(req, res, next) {
 
 router.post('/saveiexpense', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
-  var IExpenseInfo = new expenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+  var IExpenseInfo = new iexpenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
     name : req.body.name,
     amount : req.body.amount
   }) 
@@ -145,48 +145,44 @@ router.post('/saveiexpense', function(req, res, next) {//all data is in req.body
   }).catch(err=> console.log(err+"could not save....."))
 });
 
-// router.get('/income/:incomeId', function(req, res, next) {
-//   // var movieId = req.params.id;
-//   // Movies.findOne({_id: req.params.movieId}, function(err, movie){
-//   //   console.log('moviesssssss', movie)
-//   // }
-//   //console.log(req.paramsmovieId)
+router.get('/expense/:expenseId', function(req, res, next) {
+  var expenseId = req.params._id;
   
-//   incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
-//     // var movie = item => item._id === movieId
-//     res.render('eachincome',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
-//   })
-// })
+  iexpenseinfo.findOne({ _id : req.params.expenseId}, function(err, expenses){
+    // var movie = item => item._id === movieId
+    res.render('eachexpense',{expenses}); //sends 'movies' data to 'viewOne' view
+  })
+})
 
-// router.get('/edit/:incomeId', function(req, res, next) {
-//     // var movieId = req.params.id;
-//     // Movies.findOne({_id: req.params.movieId}, function(err, movie){
-//     //   console.log('moviesssssss', movie)
-//     // }
-//     //console.log(req.paramsmovieId)
+router.get('/editexpense/:expenseId', function(req, res, next) {
+    // var movieId = req.params.id;
+    // Movies.findOne({_id: req.params.movieId}, function(err, movie){
+    //   console.log('moviesssssss', movie)
+    // }
+    //console.log(req.paramsmovieId)
     
-//     incomeinfo.findOne({ _id : req.params.incomeId}, function(err, oneincome){
-//       // var movie = item => item._id === movieId
-//       res.render('form',{incomes:oneincome}); //sends 'movies' data to 'viewOne' view
-//     })
-//   })
+    iexpenseinfo.findOne({ _id : req.params.expenseId}, function(err, oneexpense){
+      // var movie = item => item._id === movieId
+      res.render('expenseform',{oneexpense}); //sends 'movies' data to 'viewOne' view
+    })
+  })
   
-//   router.post('/saveincome/:incomeId', function(req, res, next) {//all data is in req.body
-//     console.log(req.body) //shows value in terminal
-//     incomeinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, movie){
-//      // console.log(movieId+"this is iddddd")
-//       res.redirect("/income")
-//     })
-//   });
+  router.post('/saveexpense/:expenseId', function(req, res, next) {//all data is in req.body
+    console.log(req.body) //shows value in terminal
+    iexpenseinfo.findOneAndUpdate({ _id : req.body._id}, {$set: req.body}, function(err, expenses){
+     // console.log(movieId+"this is iddddd")
+      res.redirect("/expense")
+    })
+  });
 
-//   router.get('/remove/:incomeId', function(req, res, next){
-//     incomeinfo.deleteOne({ _id : req.params.incomeId}, function(err, incomes){
-//      // console.log(movieId + 'heyyyy')
-//       // var movie = item => item._id === movieId
-//      res.redirect("/income")
-//       // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
-//     })
-//   })
+  router.get('/removeexpense/:expenseId', function(req, res, next){
+    iexpenseinfo.deleteOne({ _id : req.params.expenseId}, function(err, expenses){
+     // console.log(movieId + 'heyyyy')
+      // var movie = item => item._id === movieId
+     res.redirect("/expense")
+      // res.delete(onemovie); //sends 'movies' data to 'viewOne' view
+    })
+  })
 
 
 
