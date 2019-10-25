@@ -131,19 +131,19 @@ router.get('/expense', function(req, res, next) {
   })
 });
 
-// router.post('/addpocket', function(req, res, next) {//all data is in req.body
-//   console.log(req.body) //shows value in terminal
-//   var IncomeInfo = new incomeinfo({ //from top of the page, i. e variable name of model //new object instantiated
-//     name : req.body.name,
-//     amount : req.body.amount
-//   }) 
-//   var promise = IncomeInfo.save()    //movie.save() returns promise so promise variable used only to represent
-//   //await promise //if you use async function
-//   promise.then((IncomeInfo) => {//if you use normal promise
-//     console.log('login info', IncomeInfo)
-//     res.redirect('/income')
-//   }).catch(err=> console.log(err+"could not save....."))
-// });
+router.post('/saveiexpense', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  var IExpenseInfo = new expenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
+    name : req.body.name,
+    amount : req.body.amount
+  }) 
+  var promise = IExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
+  //await promise //if you use async function
+  promise.then((IExpenseInfo) => {//if you use normal promise
+    console.log('login info', IExpenseInfo)
+    res.redirect('/expense')
+  }).catch(err=> console.log(err+"could not save....."))
+});
 
 // router.get('/income/:incomeId', function(req, res, next) {
 //   // var movieId = req.params.id;
