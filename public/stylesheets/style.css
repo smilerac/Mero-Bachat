@@ -200,7 +200,7 @@ table tr th { color: #688a7e;}
 
 .login-img-body{
 
-  background: url('/images/loginn.png') no-repeat center center fixed;
+ background: url('/images/loginn.png') no-repeat center center fixed;
 
   -webkit-background-size: cover;
 
@@ -725,7 +725,7 @@ ul.sidebar-menu li ul.sub li a:hover, ul.sidebar-menu li ul.sub li.active a {
 
 ul.sidebar-menu li{
 
-    line-height: 40px !important;
+    line-height: 50px !important;
 
     /*margin-bottom: 5px;
 
@@ -1162,8 +1162,20 @@ width: 80px;
 
 }
 .mainlogo{
-    position:absolute;
-    left:2%;
+    display: block;
+    position :relative;
+   /* background:url('/images/mainlogo.png');*/
+    margin-top: 15px;
+    float: left;
+
+    
+}
+img{
+    width:300px;
+    top:0%;
+    padding:0;
+    margin-top: 0px;
+
 }
 .logoo{
 position: absolute;
