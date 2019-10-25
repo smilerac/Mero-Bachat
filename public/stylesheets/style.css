@@ -1122,7 +1122,7 @@ a.logo {
     box-align:left;
     height: 50%;
     width:50%;
-    background :url('/images/logo.png');
+    /* background :url('/images/logo.png'); */
     /* content:url('/images/logo.png');
     padding: 5px;
     width: 80px; */
