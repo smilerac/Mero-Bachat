@@ -6,13 +6,27 @@ var iexpenseinfo = require('../models/Immediateexpensemodel')
 var texpenseinfo = require('../models/trueexpensemodel')
 var pexpenseinfo = require('../models/pleasureexpensemodel')
 var mygoals = require('../models/goalsmodel')
+const sgMail = require('@sendgrid/mail');
 
 // /* GET home page. */
 // router.get('/', function(req, res, next) {
 //   res.render('index', { title: 'Express' });
 // });
 
-
+router.get('/notify', function(req, res, next) {
+sgMail.setApiKey('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');
+const msg = {
+  to: 'smilerac15@gmail.com',
+  from: 'merobachat2019@gmail.com',
+  subject: 'Sending with Twilio SendGrid is Fun',
+  text: 'and easy to do anywhere, even with Node.js',
+  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+};
+sgMail.send(msg,function(err,json){
+  if(err){return res.send('erooooooorrrrrr!!!')}
+console.log(json)
+res.send('Yayyyyy')});
+});
 
 router.get("/saving", function (req, res, next) {
 
