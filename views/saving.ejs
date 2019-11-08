@@ -10,25 +10,29 @@
 
         <div class="mainblock">
         <a class="closemain" href="/home">&times;</a>
-        <div class="amountsaved">
-                <br>
-            <h2>You Have Saved <b><%= sav %></b></h2>
+        <div class="goalwas">
+            <h2>Your Goal was to save <b>Rs. <%= gaddall %></b></h2>
             <!-- <input type="text" class="input1"> </input> -->
             <br>
             <br>
             <br>
         </div>
-        <div class="goalwas">
-                <h2>Your Goal was <b><%= gaddall %></b></h2>
-                <!-- <input type="text" class="input1"> </input> -->
+        <div class="amountsaved">
                 <br>
-                <br>
-                <br>
-            </div>
+            <h2>You Have Saved <b>Rs. <%= sav %></b></h2>
+            <!-- <input type="text" class="input1"> </input> -->
+            <br>
+            <br>
+            <br>
+        </div>
+       
             <div class="box">
 
                
                     <a class="button" href="#popup1">ok</a>
+                </div>
+                <div class="box">
+                    <a href = "/notify" ><a class="button"  href = "#popup2">Mail me the details</a></a>
                 </div>
                 <% if(sav>=gaddall){ %>
 
@@ -54,6 +58,16 @@
                         </div>
 
                     <% }%>
+                    <div id="popup2" class="overlay">
+                        <div class="popup">
+                            <h2><%= notification %></h2>
+                            <a class="close" href="#">&times;</a>
+                            <div class="content">
+                                    
+                                </div>
+                        </div>
+                    </div>
+                    
         </div>
     </body>
 
