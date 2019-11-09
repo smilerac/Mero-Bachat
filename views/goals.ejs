@@ -438,7 +438,7 @@
 
 <% goals.forEach(function(goal) {%>
 
-      <h2></h2>Amount to save : <%= goal.amount %> </h2>
+      <h2>Amount to save : <%= goal.amount %> </h2>
       <h2>Saving for : <%= goal.for %></h2>
       <a href = "/editgoal/<%= goal._id %>" > <button  onclick="openForm()"> <a href="#popup1">Edit</a></button></a>
       <a href = "/deletegoal/<%= goal._id %>" ><button position="right">Delete</button></a>
@@ -451,14 +451,15 @@
 
 
 <div id="popup1" class="overlay">
-  <div class="popup">.
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+  <div class="popup">
+  
+    
+      <div class="">
         <div class="card card-signin my-5" >
           <div class="card-body">
-             
-            <h5 class="card-title text-center">New Goal</h5>
+            <div class="mainblock">
+              <a class="closemain" href="/mygoals">&times;</a> 
+            <h3>New Goal</h3>
             <form class="form-signin" method = "post" action = "/savegoal">
 
               <div class="form-label-group">
@@ -473,15 +474,11 @@
 
               
  
-              <div class="custom-control custom-checkbox mb-3">
-                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                
-              </div>
+           
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" onclick="closeForm()">Set</button>
             </form>
+            </div>
           </div>
-        </div>
-      </div>
     </div>
   </div>
 </body>
