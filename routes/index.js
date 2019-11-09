@@ -125,10 +125,44 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
+// res.render('dashboard/barchart', { 
+//   title: 'My First Bar Chart',
+//   datai: JSON.stringify(number_of_posts_data),
+//   labeli: JSON.stringify(month_data)
+//  });
+
+
 router.get('/home', function(req, res, next) {
   logininfo.find().exec((err,LoginInfo) => {
     console.log('login info...........',LoginInfo);
-    res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
+    // res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
+
+    incomeinfo.find().exec((err, incomes) => {
+      // var iaddall = 0
+      // console.log('name...........',incomes);
+      // for(var i in incomes){    
+      //   iaddall = iaddall + incomes[i].amount
+      // }
+      iexpenseinfo.find().exec((err, expenses) => {
+        // var eaddall = 0
+        // for(var i in expenses){    
+        //   eaddall = eaddall + expenses[i].amount
+        //   console.log('amount...........',expenses.amount);
+    
+        // }
+      mygoals.find().exec((err, goals) => {
+        // var gaddall = 0
+        // for(var i in goals){    
+        //   gaddall = gaddall + goals[i].amount
+        //   console.log('amount...........',goals.amount);
+        //   var notification = null
+        //   var sav = iaddall - eaddall
+          // res.render('saving',{sav,gaddall,notification});
+          res.render('index',{LoginInfo,incomes,expenses,goals}); 
+      // }
+      })
+    })
+  })
   })
 });
 
