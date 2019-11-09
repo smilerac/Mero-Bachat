@@ -46,9 +46,9 @@ incomeinfo.find().exec((err, incomes) => {
 
       }
         var notification
-      sgMail.setApiKey('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');
+      sgMail.setApiKey('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');
       const msg = {
-        to: 'lee94saajan@gmail.com',
+        to: 'smilerac15@gmail.com',
         from: 'merobachat2019@gmail.com',
          subject: 'Mero Bachat daily mail: About Your Goal',
         text: message,
@@ -491,25 +491,26 @@ router.post('/loginverify', function(req, res, next) {//all data is in req.body
     var password = req.body.password;
 
     logininfo.findOne({email : email, password : password}, function(err,user){
+      console.log(err)
       if(err){
-        console.log(err)
+        console.log('okay',err)
         return res.status(500).send()
         // res.render('404wrong');
       }
-     
+      // if(!email){
+      //   // return res.status(404).send();
+      //   res.render('404user');
+      // }
 
-      // if( (user.email != email) || (user.email != email)){
+      //  if( (logininfo.email != email) || (logininfo.password != password)){
       //   res.render('404wrong');
       // }
 
-      // if( (logininfo.email === email) && (logininfo.email === email)){
+      //  if( (logininfo.email === email) && (logininfo.email === email)){
       //   res.redirect('/home')
       // }
 
-      if(!email){
-        // return res.status(404).send();
-        res.render('404user');
-      }
+      
       // return res.status(200).send()
       res.redirect('/home')
   }) 
