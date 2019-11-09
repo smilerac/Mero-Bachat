@@ -94,7 +94,7 @@
   }
 
   .box {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
     background: rgba(255,255,255,0.2);
     padding: 35px;
@@ -107,7 +107,8 @@
   .button {
     font-size: 1em;
     padding: 10px;
-    color: #fff;
+    background: rgb(20, 33, 92);
+    color: rgb(226, 229, 235);
     border: 2px solid gray;
     border-radius: 20px/50px;
     text-decoration: none;
@@ -115,5 +116,8 @@
     transition: all 0.3s ease-out;
   }
   .button:hover {
-    background: grey;
+    background: rgb(20, 33, 92);
+    font-size: 1em;
+    color: rgb(54, 54, 54);
+
   }

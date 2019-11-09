@@ -14,19 +14,70 @@ const sgMail = require('@sendgrid/mail');
 // });
 
 router.get('/notify', function(req, res, next) {
-sgMail.setApiKey('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');
+  var notification
+sgMail.setApiKey('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');
 const msg = {
   to: 'smilerac15@gmail.com',
   from: 'merobachat2019@gmail.com',
-  subject: 'Sending with Twilio SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+   subject: 'Mero Bachat daily mail: About Your Goal',
+  text: 'You have reached your goal',
+  html: '<strong>You have reached your goal!</strong>',
 };
-sgMail.send(msg,function(err,json){
-  if(err){return res.send('erooooooorrrrrr!!!')}
+sgMail.send(msg,(err,json) => {
+  if(err){
+     notification = "Sorry, Could not send the mail"
+    return res.send('erooooooorrrrrr!!!')}
 console.log(json)
-res.send('Yayyyyy')});
+res.send('Yayyyyy')
+ notification = "Email sent!!"
+  
+//temporarily
+incomeinfo.find().exec((err, incomes) => {
+  var iaddall = 0
+  console.log('name...........',incomes);
+  for(var i in incomes){    
+    iaddall = iaddall + incomes[i].amount
+  }
+  iexpenseinfo.find().exec((err, expenses) => {
+    var eaddall = 0
+    for(var i in expenses){    
+      eaddall = eaddall + expenses[i].amount
+      console.log('amount...........',expenses.amount);
+    }
+  mygoals.find().exec((err, goals) => {
+    var gaddall = 0
+    for(var i in goals){    
+      gaddall = gaddall + goals[i].amount
+      console.log('amount...........',goals.amount);
+      var sav = iaddall - eaddall
+
+      res.render('saving',{sav,gaddall,notification});
+    }
+  })
+})
+})
+//
+})
+
+
 });
+
+
+// sgMail.setApiKey('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');
+// const msg = {
+//   to: 'lee94saajan@gmail.com',
+//   from: 'merobachat2019@gmail.com',
+//   subject: 'Mero Bachat daily mail: About Your Goal',
+//   text: 'You have reached your goal',
+//   html: '<strong>You have reached your goal!</strong>',
+// };
+// router.get('/notify', function(req, res, next) {
+// sgMail.send(msg,function(err,json){
+//   if(err){return res.send('erooooooorrrrrr!!!')}
+// console.log(json)
+// res.send('Yayyyyy')});
+
+// });
 
 router.get("/saving", function (req, res, next) {
 
@@ -48,9 +99,9 @@ router.get("/saving", function (req, res, next) {
       for(var i in goals){    
         gaddall = gaddall + goals[i].amount
         console.log('amount...........',goals.amount);
-
+        var notification = null
         var sav = iaddall - eaddall
-        res.render('saving',{sav,gaddall});
+        res.render('saving',{sav,gaddall,notification});
     }
     })
   })
@@ -74,10 +125,44 @@ router.get('/', function(req, res, next) {
   res.render('login');
 });
 
+// res.render('dashboard/barchart', { 
+//   title: 'My First Bar Chart',
+//   datai: JSON.stringify(number_of_posts_data),
+//   labeli: JSON.stringify(month_data)
+//  });
+
+
 router.get('/home', function(req, res, next) {
   logininfo.find().exec((err,LoginInfo) => {
     console.log('login info...........',LoginInfo);
-    res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
+    // res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
+
+    incomeinfo.find().exec((err, incomes) => {
+      // var iaddall = 0
+      // console.log('name...........',incomes);
+      // for(var i in incomes){    
+      //   iaddall = iaddall + incomes[i].amount
+      // }
+      iexpenseinfo.find().exec((err, expenses) => {
+        // var eaddall = 0
+        // for(var i in expenses){    
+        //   eaddall = eaddall + expenses[i].amount
+        //   console.log('amount...........',expenses.amount);
+    
+        // }
+      mygoals.find().exec((err, goals) => {
+        // var gaddall = 0
+        // for(var i in goals){    
+        //   gaddall = gaddall + goals[i].amount
+        //   console.log('amount...........',goals.amount);
+        //   var notification = null
+        //   var sav = iaddall - eaddall
+          // res.render('saving',{sav,gaddall,notification});
+          res.render('index',{LoginInfo,incomes,expenses,goals}); 
+      // }
+      })
+    })
+  })
   })
 });
 
