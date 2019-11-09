@@ -17,7 +17,7 @@ router.get('/notify', function(req, res, next) {
   var notification
 sgMail.setApiKey('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');
 const msg = {
-  to: 'smilerac15@gmail.com',
+  to: 'lee94saajan@gmail.com',
   from: 'merobachat2019@gmail.com',
    subject: 'Mero Bachat daily mail: About Your Goal',
   text: 'You have reached your goal',
