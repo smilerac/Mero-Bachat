@@ -94,12 +94,12 @@
   }
 
   .box {
-    width: 60%;
+    width: 100%;
     margin: 0 auto;
     background: rgba(255,255,255,0.2);
     padding: 35px;
     border: 2px solid #fff;
-    border-radius: 20px/50px;
+    
     background-clip: padding-box;
     text-align: center;
   }
@@ -114,6 +114,9 @@
     text-decoration: none;
     cursor: pointer;
     transition: all 0.3s ease-out;
+    width:100%;
+    text-indent:0;
+    display:inline-block;
   }
   .button:hover {
     background: rgb(20, 33, 92);
