@@ -14,22 +14,8 @@ const sgMail = require('@sendgrid/mail');
 // });
 
 router.get('/notify', function(req, res, next) {
-  var notification
-sgMail.setApiKey('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');
-const msg = {
-  to: 'smilerac15@gmail.com',
-  from: 'merobachat2019@gmail.com',
-   subject: 'Mero Bachat daily mail: About Your Goal',
-  text: 'You have reached your goal',
-  html: '<strong>You have reached your goal!</strong>',
-};
-sgMail.send(msg,(err,json) => {
-  if(err){
-     notification = "Sorry, Could not send the mail"
-    return res.send('erooooooorrrrrr!!!')}
-console.log(json)
-res.send('Yayyyyy')
- notification = "Email sent!!"
+
+
   
 //temporarily
 incomeinfo.find().exec((err, incomes) => {
@@ -49,18 +35,45 @@ incomeinfo.find().exec((err, incomes) => {
     for(var i in goals){    
       gaddall = gaddall + goals[i].amount
       console.log('amount...........',goals.amount);
+    }
       var sav = iaddall - eaddall
 
+      if (sav<gaddall){
+        var message = "Your goal is yet to be reached."
+      }
+      else {
+        var message = 'Congratulations, You have reached your goal'
+
+      }
+        var notification
+      sgMail.setApiKey('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');
+      const msg = {
+        to: 'lee94saajan@gmail.com',
+        from: 'merobachat2019@gmail.com',
+         subject: 'Mero Bachat daily mail: About Your Goal',
+        text: message,
+        html: '<strong>You have reached your goal!</strong>',
+      };
+      
+      
+
+      sgMail.send(msg,(err,json) => {
+        if(err){
+           notification = "Sorry, Could not send the mail"
+          return res.send('erooooooorrrrrr!!!')}
+      console.log(json)
+      res.send('Yayyyyy')
+       notification = "Email sent!!"
+
       res.render('saving',{sav,gaddall,notification});
-    }
-  })
-})
+    })
 })
 //
 })
 
 
 });
+})
 
 
 // sgMail.setApiKey('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');
@@ -100,9 +113,9 @@ router.get("/saving", function (req, res, next) {
         gaddall = gaddall + goals[i].amount
         console.log('amount...........',goals.amount);
         var notification = null
-        var sav = iaddall - eaddall
-        res.render('saving',{sav,gaddall,notification});
     }
+    var sav = iaddall - eaddall
+        res.render('saving',{sav,gaddall,notification});
     })
   })
 })
