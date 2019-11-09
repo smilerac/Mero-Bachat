@@ -15,20 +15,20 @@ const sgMail = require('@sendgrid/mail');
 
 router.get('/notify', function(req, res, next) {
   var notification
-sgMail.setApiKey('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');
+sgMail.setApiKey('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');
 const msg = {
-  to: 'lee94saajan@gmail.com',
+  to: 'smilerac15@gmail.com',
   from: 'merobachat2019@gmail.com',
-  subject: 'Sending with Twilio SendGrid is Fun',
-  text: 'and easy to do anywhere, even with Node.js',
-  html: '<strong>and easy to do anywhere, even with Node.js</strong>',
+   subject: 'Mero Bachat daily mail: About Your Goal',
+  text: 'You have reached your goal',
+  html: '<strong>You have reached your goal!</strong>',
 };
 sgMail.send(msg,(err,json) => {
   if(err){
      notification = "Sorry, Could not send the mail"
     return res.send('erooooooorrrrrr!!!')}
 console.log(json)
-// res.send('Yayyyyy')
+res.send('Yayyyyy')
  notification = "Email sent!!"
   
 //temporarily
