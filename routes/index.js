@@ -16,7 +16,6 @@ const sgMail = require('@sendgrid/mail');
 router.get('/notify', function(req, res, next) {
 
 
-  
 //temporarily
 incomeinfo.find().exec((err, incomes) => {
   var iaddall = 0
