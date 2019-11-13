@@ -155,6 +155,13 @@ router.get('/home', function(req, res, next) {
       // for(var i in incomes){    
       //   iaddall = iaddall + incomes[i].amount
       // }
+      var income_amount = []
+        for(var i in incomes){    
+           
+            income_amount.push(incomes[i].amount)   
+            console.log('income amount...........',income_amount);
+      
+          }
       iexpenseinfo.find().exec((err, expenses) => {
         // var eaddall = 0
         // for(var i in expenses){    
@@ -162,6 +169,15 @@ router.get('/home', function(req, res, next) {
         //   console.log('amount...........',expenses.amount);
     
         // }
+        var expense_amount = []
+        for(var i in expenses){    
+           
+            expense_amount.push(expenses[i].amount)   
+            console.log('amount...........',expense_amount);
+      
+          }
+          
+
       mygoals.find().exec((err, goals) => {
         // var gaddall = 0
         // for(var i in goals){    
@@ -170,7 +186,7 @@ router.get('/home', function(req, res, next) {
         //   var notification = null
         //   var sav = iaddall - eaddall
           // res.render('saving',{sav,gaddall,notification});
-          res.render('index',{LoginInfo,incomes,expenses,goals}); 
+          res.render('index',{LoginInfo,incomes,expenses,goals,income_amount,expense_amount}); 
       // }
       })
     })
@@ -199,6 +215,7 @@ router.get('/income', function(req, res, next) {
       console.log('amount...........',incomes.amount);
 
     }
+
     res.render('income',{incomes,iaddall}); //sends 'movies' data to 'viewMovies' view
   })
 });
