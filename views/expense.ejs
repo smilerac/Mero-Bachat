@@ -436,9 +436,16 @@
               <h1>Add a Pocket</h1>
               <label for="name"><b>Name</b></label>
               <input type="text" placeholder="Pocket Name" name="name" required>
-              <label for="amount"><b>Amount</b></abel>
+              <label for="amount"><b>Amount</b></label>
               <input type="text" placeholder="Rs." name="amount" required>
-              <button type="submit" class="btn">Enter</button>
+              <input type="radio" name="category" value="obligations"> Immediate Obligations<br>
+              <input type="radio" name="category" value="expenses"> True Expenses<br>
+              <input type="radio" name="category" value="transportation"> Transportation<br>
+              <input type="radio" name="category" value="debt"> Debt Repayment<br>
+              <input type="radio" name="category" value="pleasures"> Pleasures     
+              <input type="radio" name="category" value="other"> Other     
+
+                      <button type="submit" class="btn">Enter</button>
               <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
               </form>
           </div>

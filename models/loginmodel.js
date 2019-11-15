@@ -5,10 +5,11 @@ const LoginSchema = mongoose.Schema({
     email : String,
     username : String,
     password : String, 
-    createdDate: {
-        type: Date,
-        default: Date.now
-    }
-});
+    // createdDate: {
+    //     type: Date,
+    //     default: Date.now
+    // }
+}, {timestamps: true});
 
 module.exports  = mongoose.model('login',LoginSchema);  
+
