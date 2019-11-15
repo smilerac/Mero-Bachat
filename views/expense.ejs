@@ -438,12 +438,25 @@
               <input type="text" placeholder="Pocket Name" name="name" required>
               <label for="amount"><b>Amount</b></label>
               <input type="text" placeholder="Rs." name="amount" required>
-              <input type="radio" name="category" value="obligations"> Immediate Obligations<br>
+              <select name='category'>
+                  <option>Immediate Obligations</option>
+                  <option>True Expenses</option>
+                  <option>Transportation</option>
+                  <option>Debt Repayment</option>
+                  <option>Pleasures</option>
+                  <option>Other</option>
+                  <!-- <option>Epic</option>
+                  <option>Comedy-drama</option>
+                  <option>Non-Fiction</option> -->
+              </select>
+              <br>
+             
+              <!-- <input type="radio" name="category" value="obligations"> Immediate Obligations<br>
               <input type="radio" name="category" value="expenses"> True Expenses<br>
               <input type="radio" name="category" value="transportation"> Transportation<br>
               <input type="radio" name="category" value="debt"> Debt Repayment<br>
               <input type="radio" name="category" value="pleasures"> Pleasures     
-              <input type="radio" name="category" value="other"> Other     
+              <input type="radio" name="category" value="other"> Other      -->
 
                       <button type="submit" class="btn">Enter</button>
               <button type="button" class="btn cancel" onclick="closeadd()">Close</button>
@@ -452,7 +465,10 @@
           <br>
           <% expenses.forEach(function(expense) {%>
             <div class='business'>
-                <a href = "/expense/<%= expense._id %>" ><button class="open-button" onclick="openForm()"> <%= expense.name %> pocket <br> Rs. <%= expense.amount %></button></a>
+                <a href = "/expense/<%= expense._id %>" ><button class="open-button" onclick="openForm()"> 
+                  <%= expense.name %> pocket<br> 
+                  Rs. <%= expense.amount %> <br>
+                <%= expense.category %></button></a>
                 <div class="form-popup" id="myForm">
               
                       </div>
