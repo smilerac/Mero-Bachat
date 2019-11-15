@@ -4,10 +4,11 @@ const ExpenseSchema = mongoose.Schema({
     // _id : Number,
     name : String,
     amount : Number,
-    createdDate: {
-        type: Date,
-        default: Date.now
-    }
-});
+    category : String,
+    // createdDate: {
+    //     type: Date,
+    //     default: Date.now
+    // }
+}, {timestamps: true});
 
 module.exports  = mongoose.model('expense',ExpenseSchema);  
