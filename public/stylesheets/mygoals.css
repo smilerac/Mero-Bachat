@@ -5,10 +5,7 @@
   height: 100vh;
   position: absolute;
 }
-body{
-  background: url('/images/save.jpg') no-repeat;
-  background-size: cover;
-}
+
 h1 {
   text-align: center;
   font-family: Tahoma, Arial, sans-serif;
@@ -27,6 +24,9 @@ h1 {
 }
  .closemain:hover {
   color: grey;
+}
+.im{
+  background:url("/images/mygoal.png");
 }
 .overlay {
   position: fixed;
