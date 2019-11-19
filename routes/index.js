@@ -150,14 +150,17 @@ router.get('/home', function(req, res, next) {
     // res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
 
     incomeinfo.find().exec((err, incomes) => {
+      
       // var iaddall = 0
       // console.log('name...........',incomes);
       // for(var i in incomes){    
       //   iaddall = iaddall + incomes[i].amount
       // }
+      
       var income_amount = []
         for(var i in incomes){    
-           
+          var date = incomes[i]._id.getTimestamp()
+          console.log("this is date date.",date.getMonth())
             income_amount.push(incomes[i].amount)   
             // console.log('income amount...........',income_amount);
       
@@ -183,19 +186,21 @@ router.get('/home', function(req, res, next) {
             expense_amount.push(expenses[i].amount)   
             // console.log('vamount...........',typeof expenses[i].amount);
             console.log('vamount...........',expenses[i].amount);
-            if(expenses[i].category='Immediate Obligations'){
+            console.log('category is',expenses[i].category)
+            if(expenses[i].category=='Immediate Obligations'){
               IOexpense = IOexpense + parseInt(expenses[i].amount)
+        
             }
-            else if(expenses[i].category='True Expenses'){
+            else if(expenses[i].category=='True Expenses'){
               TEexpense = TEexpense + parseInt(expenses[i].amount)
             }
-            else if(expenses[i].category='Transportation'){
+            else if(expenses[i].category=='Transportation'){
               Texpense = Texpense + parseInt(expenses[i].amount)
             }
-            else if(expenses[i].category='Lend / Repay'){
+            else if(expenses[i].category=='Lend / Repay'){
               LRexpense = LRexpense + parseInt(expenses[i].amount)
             }
-            else if(expenses[i].category='Pleasures'){
+            else if(expenses[i].category=='Pleasures'){
               Pexpense = Pexpense + parseInt(expenses[i].amount)
             }
             else{
@@ -204,7 +209,6 @@ router.get('/home', function(req, res, next) {
           }
           console.log('tamount...........',typeof Texpense);
           console.log('tamount...........',Texpense);
-
 
 
   

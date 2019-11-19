@@ -440,6 +440,7 @@
     var LRexpense = parseInt('<%= LRexpense %>');
     var Pexpense = parseInt('<%= Pexpense %>');
     var Oexpense = parseInt('<%= Oexpense %>');
+    console.log('this is blag',IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense)
 
     // console.log('expense IO',typeof IOexpense)
     console.log('expense IO',Texpense)
@@ -506,6 +507,34 @@
           },
         ]
       }
+
+      var LineChartData = {
+        labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label               : 'Immediate Obligations',
+            backgroundColor     : 'rgba(60,141,188,0.9)',
+            borderColor         : 'rgba(60,141,188,0.8)',
+            pointRadius          : false,
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : incomearray
+          },
+          {
+            label               : 'True Expenses',
+            backgroundColor     : 'rgba(210, 214, 222, 1)',
+            borderColor         : 'rgba(210, 214, 222, 1)',
+            pointRadius         : false,
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : expensearray
+          },
+        ]
+      }
   
       var areaChartOptions = {
         maintainAspectRatio : false,
@@ -544,7 +573,7 @@
       //--------------
       var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
       var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-      var lineChartData = jQuery.extend(true, {}, areaChartData)
+      var lineChartData = jQuery.extend(true, {}, LineChartData)
       lineChartData.datasets[0].fill = false;
       lineChartData.datasets[1].fill = false;
       lineChartOptions.datasetFill = false
@@ -573,8 +602,8 @@
         ],
         datasets: [
           {
-            // data: [IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense],
-            data: [7000,5000,4000,6000,3000,500],
+            data: [IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense],
+            // data: [7000,5000,4000,6000,3000,500],
             backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
           }
         ]
