@@ -150,32 +150,68 @@ router.get('/home', function(req, res, next) {
     // res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
 
     incomeinfo.find().exec((err, incomes) => {
+      
       // var iaddall = 0
       // console.log('name...........',incomes);
       // for(var i in incomes){    
       //   iaddall = iaddall + incomes[i].amount
       // }
+      
       var income_amount = []
         for(var i in incomes){    
-           
+          var date = incomes[i]._id.getTimestamp()
+          console.log("this is date date.",date.getMonth())
             income_amount.push(incomes[i].amount)   
-            console.log('income amount...........',income_amount);
+            // console.log('income amount...........',income_amount);
       
           }
       iexpenseinfo.find().exec((err, expenses) => {
+
+
+
         // var eaddall = 0
         // for(var i in expenses){    
         //   eaddall = eaddall + expenses[i].amount
         //   console.log('amount...........',expenses.amount);
     
         // }
+        var IOexpense = 0
+        var TEexpense = 0
+        var Texpense = 0
+        var LRexpense = 0
+        var Pexpense = 0
+        var Oexpense = 0
         var expense_amount = []
         for(var i in expenses){    
-           
             expense_amount.push(expenses[i].amount)   
-            console.log('amount...........',expense_amount);
-      
+            // console.log('vamount...........',typeof expenses[i].amount);
+            console.log('vamount...........',expenses[i].amount);
+            console.log('category is',expenses[i].category)
+            if(expenses[i].category=='Immediate Obligations'){
+              IOexpense = IOexpense + parseInt(expenses[i].amount)
+        
+            }
+            else if(expenses[i].category=='True Expenses'){
+              TEexpense = TEexpense + parseInt(expenses[i].amount)
+            }
+            else if(expenses[i].category=='Transportation'){
+              Texpense = Texpense + parseInt(expenses[i].amount)
+            }
+            else if(expenses[i].category=='Lend / Repay'){
+              LRexpense = LRexpense + parseInt(expenses[i].amount)
+            }
+            else if(expenses[i].category=='Pleasures'){
+              Pexpense = Pexpense + parseInt(expenses[i].amount)
+            }
+            else{
+              Oexpense.push(expenses[i].amount)
+            }
           }
+          console.log('tamount...........',typeof Texpense);
+          console.log('tamount...........',Texpense);
+
+
+  
           
 
       mygoals.find().exec((err, goals) => {
@@ -186,7 +222,7 @@ router.get('/home', function(req, res, next) {
         //   var notification = null
         //   var sav = iaddall - eaddall
           // res.render('saving',{sav,gaddall,notification});
-          res.render('index',{LoginInfo,incomes,expenses,goals,income_amount,expense_amount}); 
+          res.render('index',{LoginInfo,incomes,expenses,goals,income_amount,expense_amount,IOexpense, TEexpense, Texpense, LRexpense, Pexpense, Oexpense}); 
       // }
       })
     })
@@ -298,7 +334,8 @@ router.post('/saveiexpense', function(req, res, next) {//all data is in req.body
   console.log(req.body) //shows value in terminal
   var IExpenseInfo = new iexpenseinfo({ //from top of the page, i. e variable name of model //new object instantiated
     name : req.body.name,
-    amount : req.body.amount
+    amount : req.body.amount,
+    category : req.body.category
   }) 
   var promise = IExpenseInfo.save()    //movie.save() returns promise so promise variable used only to represent
   //await promise //if you use async function

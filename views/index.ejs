@@ -251,7 +251,11 @@
       </div>
     </aside>
     <!-- Content Wrapper. Contains page content -->
+<<<<<<< HEAD
     <div class="content-wrapper" style="background-color: #4dbfbf">
+=======
+    <div class="content-wrapper" style="background-color: rgba(77, 222, 233, 0.788)">
+>>>>>>> f8d888c1e42145c6c3b353ded5759d33130c4640
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <div class="container-fluid">
@@ -425,14 +429,42 @@
   <!-- page script -->
   <script>
     // var income,expense=new Array();
-    var abc = []
-       var income='<%= income_amount %>' ;
-     incomearray = income.split(',')   
-     var expense = '<%= expense_amount %>';
-     expensearray = expense.split(',')   
+    
+    //for Area, line, bar charts
+    // var incomearray = []
+    var income ='<%= income_amount %>' ;
+    incomearray = income.split(',')   
+    var expense = '<%= expense_amount %>';
+    expensearray = expense.split(',')   
+
+    //for Donut and Pie charts
+    var IOexpense = parseInt('<%= IOexpense %>') ;
+    var TEexpense = parseInt('<%= TEexpense %>');
+    var Texpense = parseInt('<%= Texpense %>');
+    var LRexpense = parseInt('<%= LRexpense %>');
+    var Pexpense = parseInt('<%= Pexpense %>');
+    var Oexpense = parseInt('<%= Oexpense %>');
+    console.log('this is blag',IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense)
+
+    // console.log('expense IO',typeof IOexpense)
+    console.log('expense IO',Texpense)
+    // IOarray = IOexpense.split(',')  
+    // var TEexpense = '<%= expense_amount %>';
+    // TEarray = TEexpense.split(',') 
+    // var Texpense = '<%= expense_amount %>';
+    // Tarray = Texpense.split(',')   
+    // var LRexpense = '<%= expense_amount %>';
+    // LRarray = LRexpense.split(',') 
+    // var Pexpense = '<%= expense_amount %>';
+    // Parray = Pexpense.split(',')
+    // var Oexpense = '<%= expense_amount %>';
+    // Oarray = Oexpense.split(',')
+    
 
 
-    console.log('type of',abc) 
+
+
+    // console.log('type of',abc) 
     $(function () {
       /* ChartJS
        * -------
@@ -468,6 +500,34 @@
           },
           {
             label               : 'Expenses',
+            backgroundColor     : 'rgba(210, 214, 222, 1)',
+            borderColor         : 'rgba(210, 214, 222, 1)',
+            pointRadius         : false,
+            pointColor          : 'rgba(210, 214, 222, 1)',
+            pointStrokeColor    : '#c1c7d1',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(220,220,220,1)',
+            data                : expensearray
+          },
+        ]
+      }
+
+      var LineChartData = {
+        labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        datasets: [
+          {
+            label               : 'Immediate Obligations',
+            backgroundColor     : 'rgba(60,141,188,0.9)',
+            borderColor         : 'rgba(60,141,188,0.8)',
+            pointRadius          : false,
+            pointColor          : '#3b8bba',
+            pointStrokeColor    : 'rgba(60,141,188,1)',
+            pointHighlightFill  : '#fff',
+            pointHighlightStroke: 'rgba(60,141,188,1)',
+            data                : incomearray
+          },
+          {
+            label               : 'True Expenses',
             backgroundColor     : 'rgba(210, 214, 222, 1)',
             borderColor         : 'rgba(210, 214, 222, 1)',
             pointRadius         : false,
@@ -517,7 +577,7 @@
       //--------------
       var lineChartCanvas = $('#lineChart').get(0).getContext('2d')
       var lineChartOptions = jQuery.extend(true, {}, areaChartOptions)
-      var lineChartData = jQuery.extend(true, {}, areaChartData)
+      var lineChartData = jQuery.extend(true, {}, LineChartData)
       lineChartData.datasets[0].fill = false;
       lineChartData.datasets[1].fill = false;
       lineChartOptions.datasetFill = false
@@ -528,6 +588,8 @@
         options: lineChartOptions
       })
   
+
+      // IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense
       //-------------
       //- DONUT CHART -
       //-------------
@@ -535,16 +597,17 @@
       var donutChartCanvas = $('#donutChart').get(0).getContext('2d')
       var donutData        = {
         labels: [
-            'Fun', 
-            'Groceries',
-            'Rent', 
-            'College fees', 
-            'clothes', 
-            'Eat out', 
+            'Immediate Obligations', 
+            'True Expenses',
+            'Transportation', 
+            'Lend / Repay', 
+            'Pleasures', 
+            'Other', 
         ],
         datasets: [
           {
-            data: [7000,5000,4000,6000,3000,500],
+            data: [IOexpense,TEexpense,Texpense,LRexpense,Pexpense,Oexpense],
+            // data: [7000,5000,4000,6000,3000,500],
             backgroundColor : ['#f56954', '#00a65a', '#f39c12', '#00c0ef', '#3c8dbc', '#d2d6de'],
           }
         ]
