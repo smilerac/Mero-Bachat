@@ -438,7 +438,28 @@
 
   <h2>Total Saving Goal for the week = <%= gaddall %></h2>
 
-
+<table class="trow">
+  <thead>
+    <% goals.forEach(function(goal) {%>
+    <tr >
+      <th><h2>Amount to save :</h2></th>
+      <td><h2><%= goal.amount %></h2></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><h2>Saving for :</h2></th>
+      <td><h2><%= goal.for %></h2></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href = "/editgoal/<%= goal._id %>" > <button  onclick="openForm()"> <a href="#popup1">Edit</a></button></a></td>
+      <td><a href = "/deletegoal/<%= goal._id %>" ><button position="right">Delete</button></a></td>
+    </tr>
+    <% }) %>
+  </thead>
+</table><!--
 <% goals.forEach(function(goal) {%>
 
       <h2>Amount to save : <%= goal.amount %> </h2>
@@ -449,7 +470,7 @@
       
 
 
-<% }) %>
+<% }) %>-->
 
 
 

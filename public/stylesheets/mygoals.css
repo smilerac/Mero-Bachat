@@ -3,9 +3,24 @@
   /*background: url('/images/save.jpg') no-repeat;
   background-size: cover;*/
   height: 100vh;
-  position: absolute;
+  padding-left: 100px;
+  padding-right:100px;
+  width: 100%;
+    position: relative;
+  
 }
-
+body{
+  background:-webkit-linear-gradient(bottom, #c471f5, #fa71cd);
+}
+.trow{
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+}
+table{
+  width: 100%;
+    position: relative;
+}
 h1 {
   text-align: center;
   font-family: Tahoma, Arial, sans-serif;

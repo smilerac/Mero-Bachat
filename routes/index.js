@@ -204,7 +204,7 @@ router.get('/home', function(req, res, next) {
               Pexpense = Pexpense + parseInt(expenses[i].amount)
             }
             else{
-              Oexpense.push(expenses[i].amount)
+             // Oexpense.push(expenses[i].amount)
             }
           }
           console.log('tamount...........',typeof Texpense);
