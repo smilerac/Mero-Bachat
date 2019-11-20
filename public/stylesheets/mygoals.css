@@ -16,6 +16,8 @@ body{
   background-color: #fff;
   width: 100%;
   position: relative;
+  opacity: 0.78;
+  color: #00B3B3;
 }
 table{
   width: 100%;
