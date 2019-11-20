@@ -416,7 +416,9 @@
                     <div class="col-md-12">
                         <div class="main-todo-input-wrap">
                             <div class="main-todo-input fl-wrap">
-                                <div class="main-todo-input-item"> <input type="text" id="todo-list-item" placeholder="What will you do today?"> </div> <button class="add-items main-search-button">ADD</button>
+                                <div class="main-todo-input-item"> <% for( var i = 0; i < task.length; i++){ %>
+                                    <input type="text" id="todo-list-item" placeholder="For what you need to save" > <%= task[i] %></div> 
+                                    <button class="add-items main-search-button">ADD</button>
                             </div>
                         </div>
                     </div>
