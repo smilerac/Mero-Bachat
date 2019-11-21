@@ -172,7 +172,7 @@ router.post('/datarange', function(req, res, next) {//all data is in req.body
     var income_amount = []
       for(var i in incomes){    
         var date = incomes[i]._id.getTimestamp().getMonth()
-        console.log("this is date date.",date)
+        console.log("this is month",date)
         if((parseInt(date) >= parseInt(month1)) && (parseInt(date) <= parseInt(month2)) ){
           console.log('month1',parseInt(month1),'date',parseInt(date),'month2',parseInt(month2))   
           income_amount.push(incomes[i].amount)   
@@ -201,6 +201,10 @@ router.post('/datarange', function(req, res, next) {//all data is in req.body
       var Oexpense = 0
       var expense_amount = []
       for(var i in expenses){    
+        var date = expenses[i]._id.getTimestamp().getMonth()
+        console.log("this is month",date)
+        if((parseInt(date) >= parseInt(month1)) && (parseInt(date) <= parseInt(month2)) ){
+          console.log('month1',parseInt(month1),'date',parseInt(date),'month2',parseInt(month2)) 
           expense_amount.push(expenses[i].amount)   
           // console.log('vamount...........',typeof expenses[i].amount);
           console.log('vamount...........',expenses[i].amount);
@@ -224,6 +228,8 @@ router.post('/datarange', function(req, res, next) {//all data is in req.body
           else{
             Oexpense.push(expenses[i].amount)
           }
+        }
+        else{console.log('No expenses data within that range of month') }
         }
         console.log('tamount...........',typeof Texpense);
         console.log('tamount...........',Texpense);
