@@ -38,7 +38,7 @@
 
                 <div id="popup1" class="overlay">
                     <div class="popup">
-                        <h2>Congratulations, Your weekly Goal was met</h2>
+                        <h2>Congratulations, Your monthly Goal was met</h2>
                         <a class="close" href="#">&times;</a>
                         <div class="content">
                                 
@@ -49,7 +49,8 @@
                 else if(sav<=gaddall) {%>
                     <div id="popup1" class="overlay">
                             <div class="popup">
-                                <h2>Your weekly Goal was not met</h2>
+                                <h2>Your monthly Goal was not met</h2>
+                                <h2>You are only short of Rs. <%= shortOf %>  to reach your goal.</h2>
                                 <a class="close" href="#">&times;</a>
                                 <div class="content">
                                         
