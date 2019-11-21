@@ -106,16 +106,23 @@ router.get("/saving", function (req, res, next) {
         console.log('amount...........',expenses.amount);
   
       }
-    mygoals.find().exec((err, goals) => {
-      var gaddall = 0
-      for(var i in goals){    
-        gaddall = gaddall + goals[i].amount
-        console.log('amount...........',goals.amount);
-        var notification = null
-    }
-    var sav = iaddall - eaddall
-        res.render('saving',{sav,gaddall,notification});
-    })
+      mygoals.find().exec((err, goals) => {
+        var gaddall = 0
+        for(var i in goals){    
+          gaddall = gaddall + goals[i].amount
+          console.log('amount...........',goals.amount);
+          var notification = null
+      }
+      var sav = iaddall - eaddall
+      var shortOf
+      if (sav>=gaddall){
+        shortOf = sav - gaddall
+      } 
+      else {
+        shortOf = gaddall - sav 
+      }
+          res.render('saving',{sav,gaddall,notification, shortOf});
+      })
   })
 })
 });
