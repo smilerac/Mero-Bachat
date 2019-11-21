@@ -3,11 +3,25 @@
   /*background: url('/images/save.jpg') no-repeat;
   background-size: cover;*/
   height: 100vh;
-  position: absolute;
+  padding-left: 100px;
+  padding-right:100px;
+  width: 100%;
+    position: relative;
+  
 }
 body{
-  background: url('/images/save.jpg') no-repeat;
-  background-size: cover;
+  background:-webkit-linear-gradient(bottom, #c471f5, #fa71cd);
+}
+.trow{
+  background-color: #fff;
+  width: 100%;
+  position: relative;
+  opacity: 0.78;
+  color: #00B3B3;
+}
+table{
+  width: 100%;
+    position: relative;
 }
 h1 {
   text-align: center;
@@ -27,6 +41,9 @@ h1 {
 }
  .closemain:hover {
   color: grey;
+}
+.im{
+  background:url("/images/mygoal.png");
 }
 .overlay {
   position: fixed;

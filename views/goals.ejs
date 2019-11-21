@@ -372,6 +372,13 @@
                             <span>My Goals</span>
                         </a>
             </li>
+            <li>
+                <a class="" href="/todo">
+                              <i class="icon_genius"></i>
+                              <span>TODO List</span>
+                          </a>
+              </li>
+            
      <!--   <li>
             <a class="" href="chart-chartjs.html">
                           <i class="icon_piechart"></i>
@@ -415,8 +422,10 @@
 
     <!--main content start-->
     <section id="main-content">
+       
       <section class="wrapper">
         <!--overview start-->
+    
         <div class="row">
           <div class="col-lg-12">
             <!-- <ol class="breadcrumb">
@@ -426,6 +435,7 @@
           </div>
         </div>
 <section class = "goalbody">
+  
 <h1>Your Goals for the week</h1>
 
 
@@ -435,7 +445,28 @@
 
   <h2>Total Saving Goal for the week = <%= gaddall %></h2>
 
-
+<table class="trow">
+  <thead>
+    <% goals.forEach(function(goal) {%>
+    <tr >
+      <th><h2>Amount to save :</h2></th>
+      <td><h2><%= goal.amount %></h2></td>
+      <td></td>
+    </tr>
+    <tr>
+      <th><h2>Saving for :</h2></th>
+      <td><h2><%= goal.for %></h2></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a href = "/editgoal/<%= goal._id %>" > <button  onclick="openForm()"> <a href="#popup1">Edit</a></button></a></td>
+      <td><a href = "/deletegoal/<%= goal._id %>" ><button position="right">Delete</button></a></td>
+    </tr>
+    <% }) %>
+  </thead>
+</table><!--
 <% goals.forEach(function(goal) {%>
 
       <h2>Amount to save : <%= goal.amount %> </h2>
@@ -446,7 +477,7 @@
       
 
 
-<% }) %>
+<% }) %>-->
 
 
 
@@ -482,6 +513,7 @@
     </div>
   </div>
 </body>
+</div>
 </div>
 </div>
 </section>

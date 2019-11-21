@@ -128,7 +128,12 @@ router.get("/saving", function (req, res, next) {
 });
 
 
-
+router.get('/todo',function(req, res,next){
+  // add a todo item //
+  var newTask = req.body.newtask;
+  name.push(newTask);
+res.render('todo');
+});
     
 
 
@@ -323,7 +328,7 @@ router.get('/home', function(req, res, next) {
               Pexpense = Pexpense + parseInt(expenses[i].amount)
             }
             else{
-              Oexpense.push(expenses[i].amount)
+             // Oexpense.push(expenses[i].amount)
             }
           }
           console.log('tamount...........',typeof Texpense);
