@@ -143,8 +143,114 @@ router.get('/', function(req, res, next) {
 //   labeli: JSON.stringify(month_data)
 //  });
 
+router.post('/datarange', function(req, res, next) {//all data is in req.body
+  console.log(req.body) //shows value in terminal
+  console.log(req.body.month1);
+  var month1 = req.body.month1
+  // if(month1 == 'January'){var m1 = 1}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else if(month1 == 'March'){var m1 = 2}
+  // else if(month1 == 'April'){var m1 = 2}
+  // else if(month1 == 'May'){var m1 = 2}
+  // else if(month1 == 'June'){var m1 = 2}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else if(month1 == 'February'){var m1 = 2}
+  // else {var m1 = 2}
+  var month2 = req.body.month2
+  logininfo.find().exec((err,LoginInfo) => {
+  incomeinfo.find().exec((err, incomes) => {
+      
+    // var iaddall = 0
+    // console.log('name...........',incomes);
+    // for(var i in incomes){    
+    //   iaddall = iaddall + incomes[i].amount
+    // }
+    
+    var income_amount = []
+      for(var i in incomes){    
+        var date = incomes[i]._id.getTimestamp().getMonth()
+        console.log("this is date date.",date)
+        if((parseInt(date) >= parseInt(month1)) && (parseInt(date) <= parseInt(month2)) ){
+          console.log('month1',parseInt(month1),'date',parseInt(date),'month2',parseInt(month2))   
+          income_amount.push(incomes[i].amount)   
+        }
+        else{
+          console.log('No income data within that range of month')   
+        }
+          // console.log('income amount...........',income_amount);
+    
+        }
+    iexpenseinfo.find().exec((err, expenses) => {
+
+
+
+      // var eaddall = 0
+      // for(var i in expenses){    
+      //   eaddall = eaddall + expenses[i].amount
+      //   console.log('amount...........',expenses.amount);
+  
+      // }
+      var IOexpense = 0
+      var TEexpense = 0
+      var Texpense = 0
+      var LRexpense = 0
+      var Pexpense = 0
+      var Oexpense = 0
+      var expense_amount = []
+      for(var i in expenses){    
+          expense_amount.push(expenses[i].amount)   
+          // console.log('vamount...........',typeof expenses[i].amount);
+          console.log('vamount...........',expenses[i].amount);
+          console.log('category is',expenses[i].category)
+          if(expenses[i].category=='Immediate Obligations'){
+            IOexpense = IOexpense + parseInt(expenses[i].amount)
+      
+          }
+          else if(expenses[i].category=='True Expenses'){
+            TEexpense = TEexpense + parseInt(expenses[i].amount)
+          }
+          else if(expenses[i].category=='Transportation'){
+            Texpense = Texpense + parseInt(expenses[i].amount)
+          }
+          else if(expenses[i].category=='Lend / Repay'){
+            LRexpense = LRexpense + parseInt(expenses[i].amount)
+          }
+          else if(expenses[i].category=='Pleasures'){
+            Pexpense = Pexpense + parseInt(expenses[i].amount)
+          }
+          else{
+            Oexpense.push(expenses[i].amount)
+          }
+        }
+        console.log('tamount...........',typeof Texpense);
+        console.log('tamount...........',Texpense);
+
+
+
+        
+
+    mygoals.find().exec((err, goals) => {
+      // var gaddall = 0
+      // for(var i in goals){    
+      //   gaddall = gaddall + goals[i].amount
+      //   console.log('amount...........',goals.amount);
+      //   var notification = null
+      //   var sav = iaddall - eaddall
+        // res.render('saving',{sav,gaddall,notification});
+        res.render('index',{LoginInfo,incomes,expenses,goals,income_amount,expense_amount,IOexpense, TEexpense, Texpense, LRexpense, Pexpense, Oexpense}); 
+    // }
+    })
+  })
+})
+})
+})
+
 
 router.get('/home', function(req, res, next) {
+  // console.log('month1',req.body.month1, month1);
   logininfo.find().exec((err,LoginInfo) => {
     console.log('login info...........',LoginInfo);
     // res.render('index',{LoginInfo}); //sends 'movies' data to 'viewMovies' view
@@ -159,8 +265,8 @@ router.get('/home', function(req, res, next) {
       
       var income_amount = []
         for(var i in incomes){    
-          var date = incomes[i]._id.getTimestamp()
-          console.log("this is date date.",date.getMonth())
+          var date = incomes[i]._id.getTimestamp().getMonth()
+          console.log("this is date date.",date)
             income_amount.push(incomes[i].amount)   
             // console.log('income amount...........',income_amount);
       
@@ -405,6 +511,7 @@ router.get('/editexpense/:expenseId', function(req, res, next) {
 //       res.render('expense',{pexpenses});
 //   })
 // });
+
 
 
 

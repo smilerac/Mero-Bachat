@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,7 +45,6 @@
    <link href="/stylesheets/xcharts.min.css" rel=" stylesheet">
    <link href="/stylesheets/jquery-ui-1.10.4.min.css" rel="stylesheet"> 
    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
-
 </head>
 
 <body>
@@ -78,11 +76,13 @@
         <!-- notificatoin dropdown start-->
         <ul class="nav pull-right top-menu">
 <!--
+  
         
             </ul>
           </li>
           < inbox notificatoin end -->
           <!-- alert notification start-->
+          
           <li id="alert_notificatoin_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
@@ -129,12 +129,14 @@
           </li>
           <!-- alert notification end-->
           <!-- user login dropdown start-->
+          
+
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
                                 
                             </span>
-                            <span class="username"><%= LoginInfo.username %></span>
+                            <span class="username">smilerac <%= LoginInfo.username %></span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -193,23 +195,23 @@
               <li><a class="" href="form_validation.html">Form Validation</a></li>
             </ul> -->
           </li>
-          <li class="sub-menu">
+          <li>
             <a href="/saving" class="">
                           <i class="icon_house_alt"></i>
                           <span>Savings Wallet</span>
                           <!-- <span class="menu-arrow arrow_carrot-right"></span> -->
                       </a>
-            <ul class="sub">
-              <li><a class="" href="general.html">Elements</a></li>
-              <li><a class="" href="buttons.html">Buttons</a></li>
-              <li><a class="" href="grids.html">Grids</a></li>
-            </ul>
           </li>
-          <li>
-            <a class="" href="/mygoals">
+          <li class="sub-menu">
+              <a class="sub" href="#">
                           <i class="icon_genius"></i>
                           <span>My Goals</span>
                       </a>
+              <ul class="sub">
+                  <li><a class="" href="/mygoals">Saving Goals</a></li>
+                  <li><a class="" href="buttons.html">mm</a></li>
+                  <li><a class="" href="grids.html">Grids</a></li>
+                </ul>
           </li>
      <!--   <li>
             <a class="" href="chart-chartjs.html">
@@ -250,24 +252,84 @@
         <!-- sidebar menu end-->
       </div>
     </aside>
+    <h1>n </h1>
     <!-- Content Wrapper. Contains page content -->
+    <form action="/datarange" class="form-container" method = 'post'>
     <div class="content-wrapper" style="background-color: rgba(77, 222, 233, 0.788)">
       <!-- Content Header (Page header) -->
-      <section class="content-header">
+      <section class="content-header">  
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>ChartJS</h1>
+                <h1 style="text-align:center">
+                    <select name='year'>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                      </select> 
+                      From 
+                      <select name='month1'>
+                          <option value= 1>January</option>
+                          <option value= 2>February</option>
+                          <option value= 3>March</option>
+                          <option value= 4>April</option>
+                          <option value= 5>May</option>
+                          <option value= 6>June</option>
+                          <option value= 7>July</option>
+                          <option value= 8>August</option>
+                          <option value= 9>September</option>
+                          <option value= 10>October</option>
+                          <option value= 11>November</option>
+                          <option value= 12>December</option>
+                        <!-- <option value="January">January</option>
+                        <option value="February">February</option>
+                        <option value="March">March</option>
+                        <option value="April">April</option>
+                        <option value="May">May</option>
+                        <option value="June">June</option>
+                        <option value="July">July</option>
+                        <option value="August">August</option>
+                        <option value="September">September</option>
+                        <option value="October">October</option>
+                        <option value="November">November</option>
+                        <option value="December">December</option> -->
+                      </select> 
+                      to 
+                      <select name='month2'>
+                          <option value= 1>January</option>
+                          <option value= 2>February</option>
+                          <option value= 3>March</option>
+                          <option value= 4>April</option>
+                          <option value= 5>May</option>
+                          <option value= 6>June</option>
+                          <option value= 7>July</option>
+                          <option value= 8>August</option>
+                          <option value= 9>September</option>
+                          <option value= 10>October</option>
+                          <option value= 11>November</option>
+                          <option value= 12>December</option>
+                      </select> 
+                      <button type="submit" class="btn">Go!</button>
+                      </h1>
             </div>
             <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">ChartJS</li>
+              <ol class="breadcrumb float-sm-center">
+                  <!-- <h1 style="text-align:center">ggg</h1> -->
               </ol>
             </div>
           </div>
         </div><!-- /.container-fluid -->
       </section>
+      </form>
   
       <!-- Main content -->
       <section class="content">
