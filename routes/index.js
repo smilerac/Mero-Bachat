@@ -238,7 +238,9 @@ router.post('/datarange', function(req, res, next) {//all data is in req.body
             Pexpense = Pexpense + parseInt(expenses[i].amount)
           }
           else{
-            Oexpense.push(expenses[i].amount)
+            // Oexpense.push(expenses[i].amount)
+            Oexpense = Oexpense + parseInt(expenses[i].amount)
+
           }
         }
         else{console.log('No expenses data within that range of month') }
