@@ -35,7 +35,14 @@ incomeinfo.find().exec((err, incomes) => {
       gaddall = gaddall + goals[i].amount
       console.log('amount...........',goals.amount);
     }
-      var sav = iaddall - eaddall
+    var sav = iaddall - eaddall
+      var shortOf
+      if (sav>=gaddall){
+        shortOf = sav - gaddall
+      } 
+      else {
+        shortOf = gaddall - sav 
+      }
 
       if (sav<gaddall){
         var message = "Your goal is yet to be reached."
@@ -45,14 +52,23 @@ incomeinfo.find().exec((err, incomes) => {
 
       }
         var notification
-      sgMail.setApiKey('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');
+      sgMail.setApiKey('');
       const msg = {
         to: 'smilerac15@gmail.com',
         from: 'merobachat2019@gmail.com',
-         subject: 'Mero Bachat daily mail: About Your Goal',
+         subject: 'Mero Bachat: Your Monthly report. ',
         text: message,
-        html: '<strong>You have reached your goal!</strong>',
+        html: 'Your total savings is <b>Rs.</b>, total expenses is <b>Rs. </b><br><br>Your expenditure according to categories:<br><br>Immediate Obligations: Rs.<br>True expenses: Rs. <br>Transportation: Rs. <br>Lend/Repay: Rs. <br>Fun / Pleasures: Rs. <br>Others: Rs. <br><br>Your monthly Goal was not met. You are only short of <b> Rs. 1500 </b> to reach your goal.<br><br> Regards, <br> Mero Bachat Team',
       };
+
+      // sgMail.setApiKey('');
+      // const msg = {
+      //   to: 'joshinasla18@gmail.com',
+      //   from: 'merobachat2019@gmail.com',
+      //    subject: 'Mero Bachat daily mail: About Your Goal. ',
+      //   text: message,
+      //   html: 'Your monthly Goal was not met. You are only short of <b> Rs. 1500 </b> to reach your goal.<br> <br><b> General Savings Tips</b><br><br> 1. An emergency fund is a must. Chances are you’ve already been told that you need an emergency fund somewhere in the ballpark of three to six months of your income. Yikes! Overwhelming, right? At Mero bachat, our motto is ‘Start Small. Think Big.’ In keeping with that, we recommend starting with an emergency fund savings of Rs 500. Learn more about emergency funds <a href = \'https://americasaves.org/for-savers/set-a-goal-what-to-save-for/save-for-emergencies\'>Here</a> . <br><br> 2. Establish your budget. The best way to jumpstart establishing a budget is to realize your spending habits. On the first day of a new month, get a receipt for everything you purchase throughout the month. Stack the receipts into categories like restaurants, groceries, and personal care. At the end of the month you will be able to clearly see where your money is going. Additionally, your bank or credit union may have this as an online-banking feature. Seeing what you spend in total on food, shopping, etc. can be humbling!<br> <br>3. Budget with cash and envelopes. If you have trouble with overspending, try the envelope budget system where you use a set amount of cash for most spending. And once the cash is gone, it\'s gone. Learn more about the envelope budget system here.<br> <br>4. Don\'t just save money, save for your future. There IS a difference!. As you begin to #ThinkLikeASaver, don’t simply spend less. Save with a purpose, such as college expenses, retirement, or for emergencies. <br><br> Regards, <br> Mero Bachat Team',
+      // };
       
       
 
@@ -60,11 +76,11 @@ incomeinfo.find().exec((err, incomes) => {
         if(err){
            notification = "Sorry, Could not send the mail"
           return res.send('erooooooorrrrrr!!!')}
-      console.log(json)
-      res.send('Yayyyyy')
+      console.log('yay',json)
+      // res.send('Yayyyyy')
        notification = "Email sent!!"
 
-      res.render('saving',{sav,gaddall,notification});
+      res.render('saving',{sav,gaddall,notification,shortOf});
     })
 })
 //
