@@ -19,8 +19,16 @@
         </div>
         <div class="amountsaved">
                 <br>
-            <h2>You Have Saved <b>Rs. <%= sav %></b></h2>
+            <h2> <% if(sav < 0){ %>
+                You Have Saved <b>no money.</b> <br>You are spending more than your income.<br>You are only short of Rs. <%= shortOf %>  to reach your goal.</h2>
+            
             <!-- <input type="text" class="input1"> </input> -->
+            <%
+            } else if(sav > 0) { %>
+                <h2>You Have Saved <b>Rs. <%= val %></b></h2>
+                <% } %>
+
+                
             <br>
             <br>
             <br>

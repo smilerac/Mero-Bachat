@@ -36,6 +36,8 @@ incomeinfo.find().exec((err, incomes) => {
       console.log('amount...........',goals.amount);
     }
     var sav = iaddall - eaddall
+    if (sav<0){ var val =sav*(-1)}
+                else{var val = sav}
       var shortOf
       if (sav>=gaddall){
         shortOf = sav - gaddall
@@ -52,7 +54,7 @@ incomeinfo.find().exec((err, incomes) => {
 
       }
         var notification
-      sgMail.setApiKey('');
+      sgMail.setApiKey('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');
       const msg = {
         to: 'smilerac15@gmail.com',
         from: 'merobachat2019@gmail.com',
@@ -80,7 +82,7 @@ incomeinfo.find().exec((err, incomes) => {
       // res.send('Yayyyyy')
        notification = "Email sent!!"
 
-      res.render('saving',{sav,gaddall,notification,shortOf});
+      res.render('saving',{sav,gaddall,notification,shortOf,val});
     })
 })
 //
@@ -91,7 +93,7 @@ incomeinfo.find().exec((err, incomes) => {
 })
 
 
-// sgMail.setApiKey('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');
+// sgMail.setApiKey('');
 // const msg = {
 //   to: 'lee94saajan@gmail.com',
 //   from: 'merobachat2019@gmail.com',
@@ -130,6 +132,8 @@ router.get("/saving", function (req, res, next) {
           var notification = null
       }
       var sav = iaddall - eaddall
+      if (sav<0){ var val =sav*(-1)}
+                else{var val = sav}
       var shortOf
       if (sav>=gaddall){
         shortOf = sav - gaddall
@@ -137,7 +141,7 @@ router.get("/saving", function (req, res, next) {
       else {
         shortOf = gaddall - sav 
       }
-          res.render('saving',{sav,gaddall,notification, shortOf});
+          res.render('saving',{sav,gaddall,notification, shortOf,val});
       })
   })
 })
