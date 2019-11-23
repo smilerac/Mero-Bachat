@@ -54,7 +54,7 @@ incomeinfo.find().exec((err, incomes) => {
 
       }
         var notification
-      sgMail.setApiKey('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');
+      sgMail.setApiKey('');
       const msg = {
         to: 'smilerac15@gmail.com',
         from: 'merobachat2019@gmail.com',
