@@ -60,11 +60,11 @@ nodemon
 
 Some images:
 ```
-![Home Page](\images\HomePage.png)
+![Home Page](images\HomePage.png)
 ![Home Page](IncomePocketPage.png)
-![Home Page](\public\images\ExpensePocketPage.png)
-![Home Page](/public/images/AddaPocket.png)
-![Home Page](/public/images/SavingGoalsPage.png)
+![Home Page](public\images\ExpensePocketPage.png)
+![Home Page](public/images/AddaPocket.png)
+![Home Page](public/images/SavingGoalsPage.png)
 ```
 
 ## Built With
