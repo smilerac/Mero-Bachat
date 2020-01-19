@@ -77,5 +77,6 @@ Some images:
 ## Authors
 
 * **Rachita Maharjan** - *Initial work* - [smilerac](https://bitbucket.org/smilerac)
+* **Nasla Joshi** - *Initial work* - [joshinasla](https://github.com/joshinasla)
 
 See also the list of [contributors](https://github.com/smilerac/Mero-Bachat/graphs/contributors) who participated in this project.
