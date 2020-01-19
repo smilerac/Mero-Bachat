@@ -60,7 +60,7 @@ nodemon
 
 Some images:
 ```
-![Home Page](/public/images/HomePage.png)
+![Home Page](HomePage.png)
 ![Home Page](/public/images/IncomePocketPage.png)
 ![Home Page](/public/images/ExpensePocketPage.png)
 ![Home Page](/public/images/AddaPocket.png)
