@@ -60,11 +60,11 @@ nodemon
 
 Some images:
 ```
-![Home Page](/public/images/HomePage.png)
-![Income Pocket](IncomePocketPage.png)
-![Expenses Pocket](public/images/ExpensePocketPage.png)
+![Home Page](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/HomePage.png)
+![Income Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/IncomePocketPage.png)
+![Expenses Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/ExpensePocketPage.png)
 ![Add a Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/AddaPocket.png)
-![Savings Goals](public/images/SavingGoalsPage.png)
+![Savings Goals](https://github.com/smilerac/Mero-Bachat/blob/master/SavingGoalsPage.png)
 ```
 
 ## Built With
