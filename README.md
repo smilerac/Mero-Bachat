@@ -58,14 +58,19 @@ Go to the folder (through terminal)
 nodemon
 ```
 
-Some images:
-```
-![Home Page](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/HomePage.png)
-![Income Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/IncomePocketPage.png)
+### Some images:
+
+Home Page:
+![HomePage](https://user-images.githubusercontent.com/28466502/76031212-62107900-5f5f-11ea-838b-42cb89dbbc01.png)
+Income Pocket Page:
+![IncomePocketPage](https://user-images.githubusercontent.com/28466502/76031014-ef9f9900-5f5e-11ea-9eca-73fcff76781b.png)
+Expenses Pocket Page:
 ![Expenses Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/ExpensePocketPage.png)
 ![Add a Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/AddaPocket.png)
+
+Savings Goals:
 ![Savings Goals](https://github.com/smilerac/Mero-Bachat/blob/master/SavingGoalsPage.png)
-```
+
 
 ## Built With
 
