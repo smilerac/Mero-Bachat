@@ -63,7 +63,7 @@ Some images:
 ![Home Page](/public/images/HomePage.png)
 ![Income Pocket](IncomePocketPage.png)
 ![Expenses Pocket](public/images/ExpensePocketPage.png)
-![Add a Pocket](public/images/AddaPocket.png)
+![Add a Pocket](https://github.com/smilerac/Mero-Bachat/blob/master/public/images/AddaPocket.png)
 ![Savings Goals](public/images/SavingGoalsPage.png)
 ```
 
