@@ -81,7 +81,7 @@ Savings Goals:
 
 ## Authors
 
-* **Rachita Maharjan** - *Initial work* - [smilerac](https://bitbucket.org/smilerac)
+* **Rachita Maharjan** - *Initial work* - [smilerac](https://github.com/smilerac)
 * **Nasla Joshi** - *Initial work* - [joshinasla](https://github.com/joshinasla)
 
 See also the list of [contributors](https://github.com/smilerac/Mero-Bachat/graphs/contributors) who participated in this project.
